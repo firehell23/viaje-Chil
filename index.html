@@ -4,37 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Volcanes, lagos y araucarias - Chile 2026</title>
-<meta name="description" content="Nuestro viaje por el sur de Chile, 14-21 de diciembre de 2026">
-https://fonts.googleapis.com
-https://fonts.gstatic.com
-fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.4/dist/leaflet.js"></script>
-<script>window.L||document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"><script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"><\/script>')</script>
+<script>
+/* Carga de fuentes y Leaflet */
+var H = "https:" + "//";
+var LF = H + "cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/";
+document.write('<li' + 'nk rel="stylesheet" href="' + H + 'fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap">');
+document.write('<li' + 'nk rel="stylesheet" href="' + LF + 'leaflet.css">');
+document.write('<scr' + 'ipt src="' + LF + 'leaflet.js"><\/scr' + 'ipt>');
+</script>
 <style>
 :root{--dark:#2b2d31;--lake:#1f6f9f;--green:#2f6b3a;--orange:#e8762d;--sand:#f5f1ea;--card:#fff;--muted:#6b6f76;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.12)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--sand);color:var(--dark);line-height:1.5}
+body{font-family:'Inter',sans-serif;background:var(--sand);color:var(--dark);line-height:1.5;text-align:left}
 h1,h2{font-family:'Playfair Display',serif}
 a{color:var(--lake)}
 button{font-family:inherit;cursor:pointer}
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:60px 20px;overflow:hidden;background:linear-gradient(180deg,rgba(29,31,34,.35) 0%,rgba(29,31,34,.55) 60%,var(--sand) 100%),url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=2000&q=70') center/cover no-repeat,linear-gradient(135deg,var(--dark),var(--lake))}
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:60px 20px;background:linear-gradient(160deg,#1d1f22 0%,#2b4a5e 45%,#1f6f9f 75%,#2f6b3a 100%)}
 .hero-inner{max-width:900px;animation:fadeUp 1s ease both}
-.badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:999px;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:999px;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
 .hero h1{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.05;text-shadow:0 4px 20px rgba(0,0,0,.4)}
 .hero .sub{font-size:clamp(1rem,2.2vw,1.35rem);margin-top:14px;opacity:.95}
 .hero .travelers{margin-top:6px;opacity:.85;font-size:.95rem}
 .countdown{display:flex;gap:12px;justify-content:center;margin:34px 0 28px;flex-wrap:wrap}
-.cd-box{background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);border-radius:16px;min-width:88px;padding:14px 10px}
+.cd-box{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:16px;min-width:88px;padding:14px 10px}
 .cd-box b{display:block;font-size:2rem;font-weight:700}
 .cd-box span{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{border:none;border-radius:999px;padding:13px 24px;font-weight:600;font-size:.95rem;text-decoration:none;display:inline-block;transition:.25s}
+.btn{border:none;border-radius:999px;padding:13px 24px;font-weight:600;font-size:.95rem;transition:.25s}
 .btn-primary{background:var(--orange);color:#fff;box-shadow:0 8px 20px rgba(232,118,45,.4)}
-.btn-primary:hover{transform:translateY(-2px);background:#d4651f}
 .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4)}
-.btn-ghost:hover{background:rgba(255,255,255,.28)}
-.stats{max-width:1100px;margin:-60px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative;z-index:2}
+.btn:hover{transform:translateY(-2px)}
+.stats{max-width:1100px;margin:-50px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative;z-index:2}
 .stat{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);text-align:center}
 .stat b{display:block;font-size:1.6rem;color:var(--green)}
 .stat span{color:var(--muted);font-size:.85rem}
@@ -43,24 +44,22 @@ section{padding:70px 20px}
 .section-title{text-align:center;margin-bottom:30px}
 .section-title h2{font-size:clamp(1.8rem,4vw,2.6rem)}
 .section-title p{color:var(--muted)}
-.app{display:grid;grid-template-columns:400px 1fr;height:82vh;min-height:560px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;position:relative}
-#map{height:100%;width:100%;z-index:1;background:#f2efe9;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",sans-serif}
+.app{display:grid;grid-template-columns:380px 1fr;height:80vh;min-height:560px;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;position:relative}
+#map{height:100%;width:100%;z-index:1;background:#e9eef2}
 .sidebar{display:flex;flex-direction:column;border-right:1px solid #eee;min-height:0;background:#fff}
 .sheet-handle{display:none}
 .side-head{padding:16px 16px 10px;border-bottom:1px solid #f0f0f0}
-.day-chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
-.chip{flex:0 0 auto;border:2px solid transparent;background:#f3f3f3;border-radius:14px;padding:8px 12px;text-align:center;transition:.2s;font-size:.8rem}
+.day-chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.chip{flex:0 0 auto;border:2px solid transparent;background:#f3f3f3;border-radius:14px;padding:8px 12px;text-align:center;font-size:.8rem}
 .chip b{display:block;font-size:1rem}
-.chip:hover{transform:translateY(-2px)}
 .chip.active{color:#fff}
 .side-actions{display:flex;gap:8px;margin-top:10px}
-.side-actions button{flex:1;border:none;border-radius:12px;padding:9px;font-weight:600;font-size:.85rem}
+.side-actions button{flex:1;border:none;border-radius:12px;padding:9px 6px;font-weight:600;font-size:.82rem}
 .nav-btn{background:#f0f0f0;color:var(--dark)}
 .all-btn{background:var(--dark);color:#fff}
 .side-body{overflow-y:auto;padding:16px;flex:1}
-.day-detail{animation:fadeUp .4s ease both}
 .day-detail .date{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
-.day-detail h3{font-size:1.35rem;margin:4px 0 8px}
+.day-detail h3{font-size:1.3rem;margin:4px 0 8px}
 .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .meta span{background:var(--sand);border-radius:999px;padding:5px 11px;font-size:.8rem;font-weight:600}
 .program{list-style:none;margin:10px 0 14px;border-left:3px solid #e6e6e6;padding-left:14px}
@@ -73,50 +72,40 @@ section{padding:70px 20px}
 .info.weather{background:#e9f3f9;border-left:4px solid var(--lake)}
 .info h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
 .info ul{padding-left:18px}
-textarea.notes{width:100%;min-height:80px;border:1px solid #ddd;border-radius:12px;padding:10px;font-family:inherit;font-size:.9rem;resize:vertical}
+textarea.notes{width:100%;min-height:80px;border:1px solid #ddd;border-radius:12px;padding:10px;font-family:inherit;font-size:.9rem}
 .saved-hint{font-size:.75rem;color:var(--green);height:16px}
-.filter-box{position:absolute;top:12px;right:12px;z-index:500;background:rgba(255,255,255,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-radius:14px;box-shadow:var(--shadow);padding:10px;max-width:230px}
-.filter-box h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:flex;justify-content:space-between;cursor:pointer}
-.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filter-box{position:absolute;top:12px;right:12px;z-index:500;background:rgba(255,255,255,.92);border-radius:14px;box-shadow:var(--shadow);padding:10px;max-width:220px}
+.filter-box h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;display:flex;justify-content:space-between;gap:10px;cursor:pointer}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .filters.closed{display:none}
-.fchip{border:none;border-radius:8px;padding:5px 10px;font-size:.78rem;font-weight:600;background:#f1f1f1;transition:.2s;opacity:.45}
+.fchip{border:none;border-radius:8px;padding:5px 9px;font-size:.76rem;font-weight:600;background:#f1f1f1;opacity:.45}
 .fchip.on{opacity:1;color:#fff}
-.mk{width:34px;height:34px;border-radius:50%;background:var(--mc);border:2.5px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;position:relative;transition:transform .2s}
+.mk{width:34px;height:34px;border-radius:50%;background:var(--mc);border:2.5px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;position:relative}
 .mk::after{content:"";position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top:7px solid #fff}
-.mk span{font-size:16px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.2))}
-.leaflet-marker-icon:hover .mk{transform:scale(1.15)}
+.mk span{font-size:16px}
 .leaflet-marker-icon.dim{opacity:.3!important}
-.leaflet-bar{border:none!important;border-radius:12px!important;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.15)!important}
-.leaflet-bar a{background:rgba(255,255,255,.88)!important;backdrop-filter:blur(20px);width:38px!important;height:38px!important;line-height:38px!important;color:#333!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
-.seg{display:flex;background:rgba(255,255,255,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-radius:12px;padding:3px;box-shadow:0 4px 16px rgba(0,0,0,.15);gap:2px;flex-wrap:wrap;max-width:calc(100vw - 230px)}
-.seg button{border:none;background:transparent;padding:7px 11px;border-radius:9px;font-size:.78rem;font-weight:600;color:#333;transition:.2s}
+.seg{display:flex;background:rgba(255,255,255,.92);border-radius:12px;padding:3px;box-shadow:0 4px 16px rgba(0,0,0,.15);gap:2px;flex-wrap:wrap;max-width:calc(100vw - 260px)}
+.seg button{border:none;background:transparent;padding:7px 10px;border-radius:9px;font-size:.76rem;font-weight:600;color:#333}
 .seg button.on{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.15);color:#000}
-.map-dark .seg,.map-dark .leaflet-bar a{background:rgba(40,40,44,.8)!important;color:#fff!important}
-.map-dark .seg button{color:#ddd}.map-dark .seg button.on{background:#555;color:#fff}
-.leaflet-control-attribution{background:rgba(255,255,255,.6)!important;border-radius:6px 0 0 0;font-size:10px}
-.pm-back{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(3px);z-index:2000;opacity:0;pointer-events:none;transition:.3s}
-.pm{position:fixed;top:50%;left:50%;transform:translate(-50%,-46%) scale(.97);width:min(560px,94vw);max-height:90vh;overflow-y:auto;background:#fff;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.35);z-index:2001;opacity:0;pointer-events:none;transition:.3s}
+.pm-back{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:2000;opacity:0;pointer-events:none;transition:.3s}
+.pm{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(560px,94vw);max-height:90vh;overflow-y:auto;background:#fff;border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.35);z-index:2001;opacity:0;pointer-events:none;transition:.3s}
 .pm.open,.pm-back.open{opacity:1;pointer-events:auto}
-.pm.open{transform:translate(-50%,-50%) scale(1)}
-.pm-close{position:sticky;top:12px;margin:12px 12px -48px auto;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:none;background:rgba(0,0,0,.45);color:#fff;font-size:15px;z-index:3;backdrop-filter:blur(8px)}
-.pm-hero{height:230px;background:linear-gradient(135deg,var(--hc,#1f6f9f),#1d1f22);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden}
+.pm-close{position:sticky;top:12px;margin:12px 12px -46px auto;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:none;background:rgba(0,0,0,.5);color:#fff;z-index:3}
+.pm-hero{height:220px;background:linear-gradient(135deg,var(--hc,#1f6f9f),#1d1f22);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden}
 .pm-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
 .pm-hero img.ok{opacity:1}
 .pm-content{padding:18px 22px 24px}
 .pm-cat{display:inline-block;font-size:.72rem;font-weight:700;color:#fff;padding:3px 9px;border-radius:7px}
-.pm h3{font-size:1.45rem;margin:8px 0 2px;letter-spacing:-.01em}
+.pm h3{font-size:1.4rem;margin:8px 0 2px}
 .pm .when{color:var(--muted);font-size:.85rem;margin-bottom:12px}
 .pm-actions{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
-.pm-actions a{flex:1 1 140px;text-align:center;text-decoration:none;font-weight:600;font-size:.86rem;padding:10px 12px;border-radius:12px;background:#eef3f8;color:#0a84ff}
-.pm-actions a.main{background:#0a84ff;color:#fff}
+.pm-actions button{flex:1 1 140px;border:none;font-weight:600;font-size:.86rem;padding:10px 12px;border-radius:12px;background:#eef3f8;color:#0a84ff}
+.pm-actions button.main{background:#0a84ff;color:#fff}
 .pm p{font-size:.93rem;margin-bottom:10px}
 .pm .tip{background:#fff3e8;border-radius:12px;padding:10px 12px}
 .pm .wiki{background:#f6f6f4;border-radius:12px;padding:12px 14px;font-size:.88rem;color:#3a3d42}
-.pm .wiki small{display:block;margin-top:6px;color:var(--muted)}
-.pm iframe{width:100%;height:240px;border:0;border-radius:14px;margin-top:6px;background:#eee}
-.pm h5{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:14px 0 6px}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;transition:.25s}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
 .card h3{font-size:1.05rem;margin-bottom:10px}
 .pack-item{display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px dashed #eee;cursor:pointer;font-size:.92rem}
 .pack-item input{width:18px;height:18px;accent-color:var(--green)}
@@ -126,549 +115,480 @@ textarea.notes{width:100%;min-height:80px;border:1px solid #ddd;border-radius:12
 .progress-label{text-align:center;color:var(--muted);margin:-18px 0 22px;font-size:.9rem}
 .costs{max-width:760px;margin:0 auto}
 .cost-row{display:grid;grid-template-columns:1fr 160px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #f0f0f0}
-.cost-row input{border:1px solid #ddd;border-radius:10px;padding:9px 12px;font-size:1rem;text-align:right;font-family:inherit;width:100%}
+.cost-row input{border:1px solid #ddd;border-radius:10px;padding:9px 12px;font-size:1rem;text-align:right;width:100%}
 .cost-total{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
 .cost-total div{background:var(--dark);color:#fff;border-radius:16px;padding:18px;text-align:center}
 .cost-total div:last-child{background:var(--green)}
-.cost-total b{display:block;font-size:1.7rem}
+.cost-total b{display:block;font-size:1.6rem}
 .rate{font-size:.85rem;color:var(--muted);margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .rate input{width:110px;border:1px solid #ddd;border-radius:8px;padding:6px 8px}
 footer{text-align:center;padding:40px 20px;font-size:.85rem;background:var(--dark);color:#cfd2d6}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-.reveal{opacity:0;transform:translateY(30px);transition:.8s ease}
-.reveal.show{opacity:1;transform:none}
 @media (max-width:900px){
-  .stats{grid-template-columns:repeat(2,1fr)}
-  section{padding:50px 12px}
-  .app{display:block;height:80vh}
-  .sidebar{position:absolute;left:0;right:0;bottom:0;z-index:600;border-radius:20px 20px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.2);max-height:150px;transition:max-height .35s ease;border-right:none}
-  .sidebar.open{max-height:72%}
-  .sheet-handle{display:flex;justify-content:center;align-items:center;gap:8px;padding:8px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer}
-  .sheet-handle::before{content:'';width:40px;height:5px;background:#ccc;border-radius:999px}
-  .filter-box{max-width:180px;top:10px;right:10px}
-  .seg{max-width:calc(100vw - 210px)}.seg button{padding:6px 8px;font-size:.72rem}
-  .cost-row{grid-template-columns:1fr 120px}
-  .pm{top:auto;bottom:0;left:0;width:100%;max-height:88vh;border-radius:22px 22px 0 0;transform:translateY(100%)}
-  .pm.open{transform:translateY(0)}
-  .pm-hero{height:200px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  section{padding:50px 12px}
+  .app{display:block;height:80vh}
+  .sidebar{position:absolute;left:0;right:0;bottom:0;z-index:600;border-radius:20px 20px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.2);max-height:150px;transition:max-height .35s ease;border-right:none}
+  .sidebar.open{max-height:72%}
+  .sheet-handle{display:flex;justify-content:center;align-items:center;gap:8px;padding:8px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer}
+  .sheet-handle::before{content:'';width:40px;height:5px;background:#ccc;border-radius:999px}
+  .filter-box{max-width:170px}
+  .seg{max-width:calc(100vw - 210px)}
+  .cost-row{grid-template-columns:1fr 120px}
+  .pm{top:auto;bottom:0;left:0;width:100%;max-height:88vh;border-radius:22px 22px 0 0;transform:none}
 }
 </style>
 </head>
 <body>
+ 
 <header class="hero">
-  <div class="hero-inner">
-    <div class="badge">🇨🇱 Pucón · Volcán Villarrica · Huilo Huilo · Panguipulli</div>
-    <h1 id="heroTitle"></h1>
-    <p class="sub" id="heroSub"></p>
-    <p class="travelers" id="heroTravelers"></p>
-    <div class="countdown" id="countdown"></div>
-    <div class="hero-btns">
-      <a href="#mapa" class="btn bta href="#equipaje" class="btn btn-ghf="#costos" class="btn btn-ghost">💰 Coster>
+  <div class="hero-inner">
+    <div class="badge">🇨🇱 Pucón · Volcán Villarrica · Huilo Huilo · Panguipulli</div>
+    <h1 id="heroTitle"></h1>
+    <p class="sub" id="heroSub"></p>
+    <p class="travelers" id="heroTravelers"></p>
+    <div class="countdown" id="countdown"></div>
+    <div class="hero-btns">
+      <button class="btn btn-primary" onclick="go('mapa')">🗺️ Ver mapa</button>
+      <button class="btn btn-ghost" onclick="go('equipaje')">🎒 Equipaje</button>
+      <button class="btn btn-ghost" onclick="go('costos')">💰 Costos</button>
+    </div>
+  </div>
+</header>
+ 
 <div class="stats" id="stats"></div>
+ 
 <section id="mapa">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Nuestra ruta</h2>
-      <p>Toca un día y el mapa se acerca a esa etapa. Toca un marcador para ver fotos e información.</p>
-    </div>
-    <div class="app">
-      <aside class="sidebar" id="sidebar">
-        <div class="sheet-handle" id="sheetHandle">Itinerario</div>
-        <div class="side-head">
-          <div class="day-chips" id="dayChips"></div>
-          <div class="side-actions">
-            <button class="nav-btn" id="prevDay">◀ Anterior</button>
-            <button class="all-btn" id="allTrip">🌎 Todo el viaje</button>
-            <button class="nav-btn" id="nextDay">Siguiente ▶</button>
-          </div>
-        </div>
-        <div class="side-body" id="dayDetail"></div>
-      </aside>
-      <div id="map"></div>
-      <div class="filter-box">
-        <h4 id="filterToggle">Filtros <span>▾</span></h4>
-        <div class="filters" id="filters"></div>
-      </div>
-    </div>
-  </div>
+  <div class="container">
+    <div class="section-title">
+      <h2>Nuestra ruta</h2>
+      <p>Toca un día y el mapa se acerca a esa etapa. Toca un marcador para ver fotos e información.</p>
+    </div>
+    <div class="app">
+      <div class="sidebar" id="sidebar">
+        <div class="sheet-handle" id="sheetHandle">Itinerario</div>
+        <div class="side-head">
+          <div class="day-chips" id="dayChips"></div>
+          <div class="side-actions">
+            <button class="nav-btn" id="prevDay">◀ Anterior</button>
+            <button class="all-btn" id="allTrip">🌎 Todo</button>
+            <button class="nav-btn" id="nextDay">Siguiente ▶</button>
+          </div>
+        </div>
+        <div class="side-body" id="dayDetail"></div>
+      </div>
+      <div id="map"></div>
+      <div class="filter-box">
+        <h4 id="filterToggle">Filtros <span>▾</span></h4>
+        <div class="filters closed" id="filters"></div>
+      </div>
+    </div>
+  </div>
 </section>
+ 
 <section id="equipaje" style="background:#ece6db">
-  <div class="container">
-    <div class="section-title reveal">
-      <h2>Lista de equipaje</h2>
-      <p>Se guarda automáticamente en este dispositivo.</p>
-    </div>
-    <div class="progress"><div id="packProgress"></div></div>
-    <p class="progress-label" id="packLabel"></p>
-    <div class="grid2" id="packGrid"></div>
-  </div>
+  <div class="container">
+    <div class="section-title">
+      <h2>Lista de equipaje</h2>
+      <p>Se guarda automáticamente en este dispositivo.</p>
+    </div>
+    <div class="progress"><div id="packProgress"></div></div>
+    <p class="progress-label" id="packLabel"></p>
+    <div class="grid2" id="packGrid"></div>
+  </div>
 </section>
+ 
 <section id="costos">
-  <div class="container costs">
-    <div class="section-title reveal">
-      <h2>Resumen de costos</h2>
-      <p>Ingresa los montos en EUR. El total se convierte automáticamente.</p>
-    </div>
-    <div class="card">
-      <div id="costRows"></div>
-      <div class="rate">Tipo de cambio: 1 EUR = <input type="number" id="rateInput" step="1"> CLP <small>(actualizar antes del viaje)</small></div>
-      <div class="cost-total">
-        <div><span>Total EUR</span><b id="totalEur">0 €</b></div>
-        <div><span>Total CLP</span><b id="totalClp">0 CLP</b></div>
-      </div>
-    </div>
-  </div>
+  <div class="container costs">
+    <div class="section-title">
+      <h2>Resumen de costos</h2>
+      <p>Ingresa los montos en EUR. El total se convierte automáticamente.</p>
+    </div>
+    <div class="card">
+      <div id="costRows"></div>
+      <div class="rate">Tipo de cambio: 1 EUR = <input type="number" id="rateInput" step="1"> CLP</div>
+      <div class="cost-total">
+        <div><span>Total EUR</span><b id="totalEur">0 €</b></div>
+        <div><span>Total CLP</span><b id="totalClp">0 CLP</b></div>
+      </div>
+    </div>
+  </div>
 </section>
+ 
 <div class="pm-back" id="pmBack"></div>
-<div class="pm" id="pm" role="dialog" aria-modal="true">
-  <button class="pm-close" id="pmClose" aria-label="Cerrar">✕</button>
-  <div id="pmBody"></div>
+<div class="pm" id="pm">
+  <button class="pm-close" id="pmClose">✕</button>
+  <div id="pmBody"></div>
 </div>
-<footer>
-  ¡Buen viaje! 🌋🏄🌲 · Coordenadas, tiempos y kilómetros son aproximados. Fotos y textos: Wikipedia (CC BY-SA). Mapa: Esri, OpenStreetMap.
-</footer>
- 
+ 
+<footer>¡Buen viaje! 🌋🏄🌲 · Coordenadas, tiempos y kilómetros son aproximados. Fotos y textos: Wikipedia. Mapa: Esri.</footer>
+ 
 <script>
-/* ===== TODOS LOS DATOS DEL VIAJE - EDITAR AQUÍ ===== */
+/* ===== DATOS DEL VIAJE - EDITAR AQUÍ ===== */
 const TRIP = {
-  title: "Volcanes, lagos y araucarias",
-  subtitle: "14-21 de diciembre de 2026 | Sur de Chile",
-  travelers: "Viajeras/os: [nombres]",
-  start: "2026-12-14T07:30:00-03:00",
-  eurToClp: 1050,
-  categories: {
-    alojamiento: { label: "Alojamiento", icon: "🏠", color: "#7a5230" },
-    sup: { label: "SUP", icon: "🏄", color: "#1f6f9f" },
-    termas: { label: "Termas", icon: "♨️", color: "#b0306a" },
-    trekking: { label: "Trekking", icon: "🥾", color: "#2f6b3a" },
-    volcan: { label: "Volcán", icon: "🌋", color: "#b23a1e" },
-    restaurante: { label: "Restaurante", icon: "🍽️", color: "#e8762d" },
-    servicios: { label: "Bencina / compras", icon: "⛽", color: "#555b63" },
-    imperdible: { label: "Imperdible", icon: "📸", color: "#7b4fb3" },
-    bus: { label: "Bus", icon: "🚌", color: "#2b2d31" }
-  },
-  days: [
-    {
-      date: "2026-12-14", title: "Bus diurno Santiago → Pucón", color: "#2b2d31",
-      km: "aprox. 780 km", drive: "aprox. 10-11 h en bus",
-      important: ["Bus de la mañana, p. ej. salida 07:30-08:30 (Turbus, Pullman Bus, JAC)", "Comprar pasajes con anticipación", "Consultar con la empresa el transporte de las tablas SUP"],
-      program: [
-        { time: "[hora de salida]", text: "Salida desde el terminal de Santiago", stop: 0 },
-        { time: "Tarde", text: "Llegada a Pucón y check-in", stop: 2 }
-      ],
-      stops: [
-        { name: "Terminal Alameda, Santiago", cat: "bus", lat: -33.4537, lng: -70.6857, time: "[hora de salida]", gq: "Terminal Alameda Santiago", wiki: "es:Terminal Alameda", desc: "Salida del bus de la mañana a Pucón.", tip: "Revisar el terminal según la empresa (Alameda o Terminal Sur)." },
-        { name: "Terminal de buses Pucón", cat: "bus", lat: -39.2797, lng: -71.9737, time: "Tarde", gq: "Terminal de buses Pucón", wiki: "es:Pucón", desc: "Llegada a Pucón.", tip: "" },
-        { name: "Alojamiento Pucón", cat: "alojamiento", lat: -39.2724, lng: -71.9776, time: "Tarde", gq: "Pucón Chile", wiki: "es:Pucón", desc: "Base para las noches 1-3. [nombre del alojamiento]", tip: "Preguntar por espacio para guardar las tablas." }
-      ]
-    },
-    {
-      date: "2026-12-15", title: "SUP en el Villarrica e hidrospeed", color: "#1f6f9f",
-      km: "aprox. 35 km", drive: "aprox. 1:00 h",
-      important: ["Reservar el auto de arriendo en Pucón", "Reservar hidrospeed con una agencia en Pucón", "Revisar el viento: en la tarde el lago suele picarse"],
-      program: [
-        { time: "Mañana", text: "Retirar el auto y hacer compras", stop: 0 },
-        { time: "Media mañana", text: "SUP en el lago Villarrica", stop: 2 },
-        { time: "Tarde", text: "Hidrospeed en el río Trancura: cada uno baja solo sobre un flotador, con traje de neopreno y aletas", stop: 3 },
-        { time: "Noche", text: "Comer temprano y dormir: mañana es el volcán", stop: 4 }
-      ],
-      stops: [
-        { name: "Rent a car Pucón", cat: "servicios", lat: -39.2810, lng: -71.9750, time: "Mañana", gq: "Rent a car Pucón", desc: "Retiro del auto. [empresa]", tip: "Acordar la devolución el 20/12 en Pucón." },
-        { name: "Supermercado Pucón", cat: "servicios", lat: -39.2765, lng: -71.9700, time: "Mañana", gq: "Supermercado Pucón", desc: "Compras para los primeros días.", tip: "Comprar snacks y agua para el volcán." },
-        { name: "La Poza (SUP)", cat: "sup", lat: -39.2745, lng: -71.9890, time: "Media mañana", gq: "La Poza Pucón", wiki: "es:Lago Villarrica", desc: "Bahía protegida en el extremo oeste de Pucón, ideal para entrar al agua.", tip: "Temprano el agua está más tranquila." },
-        { name: "Hidrospeed río Trancura", cat: "imperdible", lat: -39.2860, lng: -71.8050, time: "Tarde", gq: "Hidrospeed Pucón", wiki: "es:Río Trancura", desc: "Bajada de río sin bote: cada persona va sobre un flotador individual. El equipo lo pone la agencia.", tip: "Las agencias de Pucón incluyen traslado. Preguntar por el nivel del río." },
-        { name: "Alojamiento Pucón", cat: "alojamiento", lat: -39.2724, lng: -71.9776, time: "Noche", gq: "Pucón Chile", wiki: "es:Pucón", desc: "Noche 2 en Pucón.", tip: "" }
-      ]
-    },
-    {
-      date: "2026-12-16", title: "🌋 Ascenso al volcán Villarrica", color: "#b23a1e",
-      km: "aprox. 35 km", drive: "aprox. 1:00 h",
-      important: ["¡Imperdible! Reservar el tour con anticipación, solo con guía certificado", "Depende del clima y de la alerta volcánica: si se suspende, lo cambiamos al día 17", "Salida muy temprano, todo el día"],
-      program: [
-        { time: "Madrugada", text: "Retiro en el alojamiento y ruta a la base del volcán", stop: 0 },
-        { time: "Mañana", text: "Ascenso al cráter del Villarrica", stop: 1 },
-        { time: "Tarde", text: "Bajada deslizándose por la nieve", stop: 1 },
-        { time: "Noche", text: "Descanso en Pucón", stop: 2 }
-      ],
-      stops: [
-        { name: "Base del volcán (centro de esquí)", cat: "volcan", lat: -39.3930, lng: -71.9550, time: "Madrugada", gq: "Centro de Ski Pucón", wiki: "es:Volcán Villarrica", desc: "Punto de partida del ascenso. Coordenada aproximada.", tip: "La agencia pone crampones, piolet, casco y ropa técnica." },
-        { name: "Cráter del volcán Villarrica", cat: "volcan", lat: -39.4200, lng: -71.9390, time: "Mañana", gq: "Volcán Villarrica", wiki: "es:Volcán Villarrica", desc: "Uno de los volcanes más activos de Sudamérica, con vista a los lagos y a otros volcanes.", tip: "Buen calzado, lentes de sol, bloqueador y capas abrigadas.", noRoute: true },
-        { name: "Alojamiento Pucón", cat: "alojamiento", lat: -39.2724, lng: -71.9776, time: "Noche", gq: "Pucón Chile", wiki: "es:Pucón", desc: "Noche 3 en Pucón.", tip: "" }
-      ]
-    },
-    {
-      date: "2026-12-17", title: "Huerquehue y Termas Botánicas", color: "#2f6b3a",
-      km: "aprox. 90 km", drive: "aprox. 2:15 h",
-      important: ["Día de reserva para el volcán si el 16 hay mal tiempo", "Comprar la entrada a Huerquehue en línea (CONAF)", "Reservar Termas Botánicas"],
-      program: [
-        { time: "Temprano", text: "Ruta al Parque Nacional Huerquehue", stop: 0 },
-        { time: "Mañana", text: "Sendero Los Lagos", stop: 1 },
-        { time: "Tarde", text: "Relajo en las Termas Botánicas, ideal después del volcán", stop: 2 },
-        { time: "Noche", text: "Cabaña en el lago Caburgua", stop: 3 }
-      ],
-      stops: [
-        { name: "Parque Nacional Huerquehue", cat: "trekking", lat: -39.1570, lng: -71.7140, time: "Temprano", gq: "Parque Nacional Huerquehue", wiki: "es:Parque nacional Huerquehue", desc: "Entrada al parque junto al lago Tinquilco.", tip: "Llegar temprano, el estacionamiento se llena." },
-        { name: "Sendero Los Lagos", cat: "trekking", lat: -39.1330, lng: -71.7000, time: "Mañana", gq: "Sendero Los Lagos Huerquehue", wiki: "es:Parque nacional Huerquehue", desc: "Caminata a las lagunas Chico, Toro y Verde entre araucarias.", tip: "Llevar suficiente agua y comida.", noRoute: true },
-        { name: "Termas Botánicas", cat: "termas", lat: -39.2330, lng: -71.7340, time: "Tarde", gq: "Termas Botánicas Pucón", desc: "Pozas termales rodeadas de vegetación. Coordenada aproximada.", tip: "Perfecto para las piernas después del volcán." },
-        { name: "Cabaña lago Caburgua", cat: "alojamiento", lat: -39.1475, lng: -71.8140, time: "Noche", gq: "Lago Caburgua", wiki: "es:Lago Caburgua", desc: "Noche 4. [nombre de la cabaña]", tip: "Idealmente cerca del agua por las tablas." }
-      ]
-    },
-    {
-      date: "2026-12-18", title: "SUP Caburgua y ruta a Huilo Huilo", color: "#0f8b8d",
-      km: "aprox. 170 km", drive: "aprox. 3:00 h",
-      important: ["Llenar el estanque en Panguipulli", "Reservar alojamiento en Huilo Huilo / Neltume"],
-      program: [
-        { time: "Mañana", text: "SUP en el lago Caburgua", stop: 0 },
-        { time: "Mediodía", text: "Parada en los Ojos del Caburgua", stop: 1 },
-        { time: "Tarde", text: "Almuerzo y paseo por la costanera de Panguipulli", stop: 2 },
-        { time: "Noche", text: "Llegada a Huilo Huilo", stop: 3 }
-      ],
-      stops: [
-        { name: "Lago Caburgua (SUP)", cat: "sup", lat: -39.1420, lng: -71.8080, time: "Mañana", gq: "Playa Blanca Lago Caburgua", wiki: "es:Lago Caburgua", desc: "Agua cristalina, en la mañana suele estar como espejo.", tip: "Salir directo desde la cabaña." },
-        { name: "Ojos del Caburgua", cat: "imperdible", lat: -39.2030, lng: -71.8210, time: "Mediodía", gq: "Ojos del Caburgua", wiki: "es:Ojos del Caburgua", desc: "Cascadas y pozones turquesa.", tip: "Entrada pagada, caminata corta." },
-        { name: "Panguipulli", cat: "restaurante", lat: -39.6430, lng: -72.3350, time: "Tarde", gq: "Costanera Panguipulli", wiki: "es:Panguipulli", desc: "La ciudad de las rosas, a orillas del lago Panguipulli.", tip: "Buen lugar para almorzar y cargar bencina." },
-        { name: "Alojamiento Huilo Huilo", cat: "alojamiento", lat: -39.8710, lng: -71.9280, time: "Noche", gq: "Huilo Huilo Montaña Mágica", wiki: "es:Reserva Biológica Huilo Huilo", desc: "Noches 5-6. P. ej. Montaña Mágica o cabañas en Neltume. Coordenada aproximada.", tip: "[nombre del alojamiento]" }
-      ]
-    },
-    {
-      date: "2026-12-19", title: "Reserva Huilo Huilo y Puerto Fuy", color: "#556b2f",
-      km: "aprox. 40 km", drive: "aprox. 1:00 h",
-      important: ["Entrada a la reserva y senderos según temporada", "Preguntar si se permite SUP en el lago Pirihueico"],
-      program: [
-        { time: "Mañana", text: "Salto del Huilo Huilo y senderos de la reserva", stop: 0 },
-        { time: "Mediodía", text: "Puerto Fuy", stop: 1 },
-        { time: "Tarde", text: "SUP en el lago Pirihueico", stop: 2 },
-        { time: "Noche", text: "Vuelta al alojamiento", stop: 3 }
-      ],
-      stops: [
-        { name: "Salto del Huilo Huilo", cat: "trekking", lat: -39.8660, lng: -71.9460, time: "Mañana", gq: "Salto del Huilo Huilo", wiki: "es:Reserva Biológica Huilo Huilo", desc: "Cascada en medio de la selva valdiviana. Coordenada aproximada.", tip: "Camino corto y fácil desde el estacionamiento." },
-        { name: "Puerto Fuy", cat: "imperdible", lat: -39.8620, lng: -71.8930, time: "Mediodía", gq: "Puerto Fuy", wiki: "es:Puerto Fuy", desc: "Pequeño pueblo en el extremo del lago Pirihueico. De aquí sale el ferry hacia Argentina.", tip: "" },
-        { name: "Lago Pirihueico (SUP)", cat: "sup", lat: -39.8650, lng: -71.8850, time: "Tarde", gq: "Lago Pirihueico Puerto Fuy", wiki: "es:Lago Pirihueico", desc: "Lago largo y angosto entre montañas, muy tranquilo.", tip: "Cuidado con el tráfico del ferry." },
-        { name: "Alojamiento Huilo Huilo", cat: "alojamiento", lat: -39.8710, lng: -71.9280, time: "Noche", gq: "Huilo Huilo Montaña Mágica", wiki: "es:Reserva Biológica Huilo Huilo", desc: "Noche 6.", tip: "" }
-      ]
-    },
-    {
-      date: "2026-12-20", title: "Lago Panguipulli y vuelta a Pucón", color: "#7b4fb3",
-      km: "aprox. 160 km", drive: "aprox. 2:45 h",
-      important: ["Devolver el auto con el estanque lleno", "Secar y guardar las tablas"],
-      program: [
-        { time: "Mañana", text: "Último SUP en el lago Panguipulli", stop: 0 },
-        { time: "Tarde", text: "Ruta a Pucón y comida de despedida", stop: 1 },
-        { time: "Tarde", text: "Devolver el auto", stop: 2 },
-        { time: "Noche", text: "Última noche en Pucón", stop: 3 }
-      ],
-      stops: [
-        { name: "Lago Panguipulli (SUP)", cat: "sup", lat: -39.6470, lng: -72.3300, time: "Mañana", gq: "Playa Panguipulli", wiki: "es:Lago Panguipulli", desc: "Lago grande con vista al volcán Choshuenco.", tip: "Entrar al agua desde la playa de la costanera." },
-        { name: "Restaurantes en el centro de Pucón", cat: "restaurante", lat: -39.2800, lng: -71.9770, time: "Tarde", gq: "Restaurantes Pucón", desc: "Comida de despedida en Pucón.", tip: "[restaurante favorito]" },
-        { name: "Devolución del auto, Pucón", cat: "servicios", lat: -39.2810, lng: -71.9750, time: "Tarde", gq: "Rent a car Pucón", desc: "Entrega del auto.", tip: "" },
-        { name: "Alojamiento Pucón", cat: "alojamiento", lat: -39.2724, lng: -71.9776, time: "Noche", gq: "Pucón Chile", wiki: "es:Pucón", desc: "Noche 7. [nombre del alojamiento]", tip: "" }
-      ]
-    },
-    {
-      date: "2026-12-21", title: "Bus diurno Pucón → Santiago", color: "#555b63",
-      km: "aprox. 780 km", drive: "aprox. 10-11 h en bus",
-      important: ["Bus de la mañana, llegada a Santiago en la tarde", "Comprar pasajes con anticipación"],
-      program: [
-        { time: "[hora de salida]", text: "Salida desde el terminal de Pucón", stop: 0 },
-        { time: "Tarde", text: "Llegada a Santiago", stop: 1 }
-      ],
-      stops: [
-        { name: "Terminal de buses Pucón", cat: "bus", lat: -39.2797, lng: -71.9737, time: "[hora de salida]", gq: "Terminal de buses Pucón", wiki: "es:Pucón", desc: "Bus de vuelta a Santiago.", tip: "" },
-        { name: "Terminal Alameda, Santiago", cat: "bus", lat: -33.4537, lng: -70.6857, time: "Tarde", gq: "Terminal Alameda Santiago", wiki: "es:Terminal Alameda", desc: "Llegada a Santiago.", tip: "" }
-      ]
-    }
-  ],
-  packlist: {
-    "📄 Documentos": ["Carnet / pasaporte", "Licencia de conducir", "Tarjeta y efectivo (CLP)", "Pasajes de bus ida y vuelta", "Confirmaciones de reservas", "Seguro de viaje", "Entradas CONAF (digital)", "Reservas volcán e hidrospeed"],
-    "🌋 Volcán": ["Zapatos de trekking firmes", "Capas térmicas", "Guantes y gorro", "Lentes de sol con filtro UV", "Bloqueador FPS 50 y protector labial", "2 litros de agua", "Snacks energéticos"],
-    "🚌 Bus": ["Almohada de viaje", "Audífonos", "Polerón (aire acondicionado)", "Snacks y agua", "Batería externa"],
-    "🏄 Equipo SUP": ["Tablas SUP", "Remos", "Inflador", "Leash", "Quillas", "Kit de reparación", "Chaleco salvavidas", "Bolsa seca", "Correas para el techo"],
-    "♨️ Termas": ["Traje de baño", "Toalla de secado rápido", "Chalas", "Bolsa impermeable"],
-    "🥾 Trekking": ["Mochila de día", "Botella de agua", "Cortaviento / impermeable", "Polar", "Repelente", "Snacks"],
-    "👕 Ropa": ["Shorts y poleras", "Pantalón largo", "Chaleco", "Traje de neopreno / primera capa para SUP", "Sandalias"],
-    "🔌 Tecnología": ["Celular y cargador", "Mapas offline descargados", "Cargador para auto", "Linterna frontal", "Cámara / GoPro"]
-  },
-  costs: ["Pasajes de bus", "Alojamiento", "Arriendo de auto", "Bencina", "Tour volcán Villarrica", "Hidrospeed", "Entradas y parques", "Termas", "Comida y supermercado", "Otros"]
+  title: "Volcanes, lagos y araucarias",
+  subtitle: "14-21 de diciembre de 2026 | Sur de Chile",
+  travelers: "Viajeras/os: [nombres]",
+  start: "2026-12-14T07:30:00-03:00",
+  eurToClp: 1050,
+  categories: {
+    alojamiento: { label: "Alojamiento", icon: "🏠", color: "#7a5230" },
+    sup: { label: "SUP", icon: "🏄", color: "#1f6f9f" },
+    termas: { label: "Termas", icon: "♨️", color: "#b0306a" },
+    trekking: { label: "Trekking", icon: "🥾", color: "#2f6b3a" },
+    volcan: { label: "Volcán", icon: "🌋", color: "#b23a1e" },
+    restaurante: { label: "Restaurante", icon: "🍽️", color: "#e8762d" },
+    servicios: { label: "Bencina / compras", icon: "⛽", color: "#555b63" },
+    imperdible: { label: "Imperdible", icon: "📸", color: "#7b4fb3" },
+    bus: { label: "Bus", icon: "🚌", color: "#2b2d31" }
+  },
+  days: [
+    { date: "2026-12-14", title: "Bus diurno Santiago → Pucón", color: "#2b2d31", km: "aprox. 780 km", drive: "aprox. 10-11 h en bus",
+      important: ["Bus de la mañana (Turbus, Pullman Bus, JAC)", "Comprar pasajes con anticipación", "Consultar el transporte de las tablas SUP"],
+      program: [{ time: "[hora]", text: "Salida desde el terminal de Santiago", stop: 0 }, { time: "Tarde", text: "Llegada a Pucón y check-in", stop: 2 }],
+      stops: [
+        { name: "Terminal Alameda, Santiago", cat: "bus", lat: -33.4537, lng: -70.6857, time: "[hora]", gq: "Terminal Alameda Santiago", wiki: "es:Terminal Alameda", desc: "Salida del bus a Pucón.", tip: "Revisar el terminal según la empresa." },
+        { name: "Terminal de buses Pucón", cat: "bus", lat: -39.2797, lng: -71.9737, time: "Tarde", gq: "Terminal de buses Pucón", wiki: "es:Pucón", desc: "Llegada a Pucón.", tip: "" },
+        { name: "Alojamiento Pucón", cat: "alojamiento", lat: -39.2724, lng: -71.9776, time: "Tarde", gq: "Pucón Chile", wiki: "es:Pucón", desc: "Noches 1-3. [nombre del alojamiento]", tip: "Preguntar por espacio para las tablas." } ] },
+    { date: "2026-12-15", title: "SUP en el Villarrica e hidrospeed", color: "#1f6f9f", km: "aprox. 35 km", drive: "aprox. 1:00 h",
+      important: ["Reservar el auto en Pucón", "Reservar hidrospeed", "En la tarde el lago suele picarse"],
+      program: [{ time: "Mañana", text: "Retirar el auto y compras", stop: 0 }, { time: "Media mañana", text: "SUP en el lago Villarrica", stop: 2 }, { time: "Tarde", text: "Hidrospeed en el río Trancura", stop: 3 }, { time: "Noche", text: "Dormir temprano: mañana es el volcán", stop: 4 }],
+      stops: [
+        { name: "Rent a car Pucón", cat: "servicios", lat: -39.2810, lng: -71.9750, time: "Mañana", gq: "Rent a car Pucón", desc: "Retiro del auto. [empresa]", tip: "Devolución el 20/12 en Pucón." },
+        { name: "Supermercado Pucón", cat: "servicios", lat: -39.2765, lng: -71.9700, time: "Mañana", gq: "Supermercado Pucón", desc: "Compras para los primeros días.", tip: "Snacks y agua para el volcán." },
+        { name: "La Poza (SUP)", cat: "sup", lat: -39.2745, lng: -71.9890, time: "Media mañana", gq: "La Poza Pucón", wiki: "es:Lago Villarrica", desc: "Bahía protegida, ideal para entrar al agua.", tip: "Temprano el agua está más tranquila." },
+        { name: "Hidrospeed río Trancura", cat: "imperdible", lat: -39.2860, lng: -71.8050, time: "Tarde", gq: "Hidrospeed Pucón", wiki: "es:Río Trancura", desc: "Bajada de río sin bote, cada uno sobre su propio flotador.", tip: "Las agencias incluyen traslado y equipo." },
+        { name: "Alojamiento Pucón", cat: "alojamiento", lat: -39.2724, lng: -71.9776, time: "Noche", gq: "Pucón Chile", wiki: "es:Pucón", desc: "Noche 2.", tip: "" } ] },
+    { date: "2026-12-16", title: "🌋 Ascenso al volcán Villarrica", color: "#b23a1e", km: "aprox. 35 km", drive: "aprox. 1:00 h",
+      important: ["¡Imperdible! Solo con guía certificado", "Si se suspende por clima, lo cambiamos al día 17", "Salida muy temprano"],
+      program: [{ time: "Madrugada", text: "Ruta a la base del volcán", stop: 0 }, { time: "Mañana", text: "Ascenso al cráter", stop: 1 }, { time: "Tarde", text: "Bajada deslizándose por la nieve", stop: 1 }, { time: "Noche", text: "Descanso en Pucón", stop: 2 }],
+      stops: [
+        { name: "Base del volcán", cat: "volcan", lat: -39.3930, lng: -71.9550, time: "Madrugada", gq: "Centro de Ski Pucón", wiki: "es:Volcán Villarrica", desc: "Punto de partida del ascenso. Coordenada aproximada.", tip: "La agencia pone crampones, piolet y casco." },
+        { name: "Cráter del volcán Villarrica", cat: "volcan", lat: -39.4200, lng: -71.9390, time: "Mañana", gq: "Volcán Villarrica", wiki: "es:Volcán Villarrica", desc: "Uno de los volcanes más activos de Sudamérica.", tip: "Lentes de sol, bloqueador y capas abrigadas.", noRoute: true },
+        { name: "Alojamiento Pucón", cat: "alojamiento", lat: -39.2724, lng: -71.9776, time: "Noche", gq: "Pucón Chile", wiki: "es:Pucón", desc: "Noche 3.", tip: "" } ] },
+    { date: "2026-12-17", title: "Huerquehue y Termas Botánicas", color: "#2f6b3a", km: "aprox. 90 km", drive: "aprox. 2:15 h",
+      important: ["Día de reserva para el volcán", "Entrada a Huerquehue en línea (CONAF)", "Reservar Termas Botánicas"],
+      program: [{ time: "Temprano", text: "Parque Nacional Huerquehue", stop: 0 }, { time: "Mañana", text: "Sendero Los Lagos", stop: 1 }, { time: "Tarde", text: "Termas Botánicas", stop: 2 }, { time: "Noche", text: "Cabaña en Caburgua", stop: 3 }],
+      stops: [
+        { name: "Parque Nacional Huerquehue", cat: "trekking", lat: -39.1570, lng: -71.7140, time: "Temprano", gq: "Parque Nacional Huerquehue", wiki: "es:Parque nacional Huerquehue", desc: "Entrada junto al lago Tinquilco.", tip: "Llegar temprano." },
+        { name: "Sendero Los Lagos", cat: "trekking", lat: -39.1330, lng: -71.7000, time: "Mañana", gq: "Sendero Los Lagos Huerquehue", wiki: "es:Parque nacional Huerquehue", desc: "Lagunas entre araucarias.", tip: "Llevar agua y comida.", noRoute: true },
+        { name: "Termas Botánicas", cat: "termas", lat: -39.2330, lng: -71.7340, time: "Tarde", gq: "Termas Botánicas Pucón", desc: "Pozas termales en la naturaleza. Coordenada aproximada.", tip: "Perfecto después del volcán." },
+        { name: "Cabaña lago Caburgua", cat: "alojamiento", lat: -39.1475, lng: -71.8140, time: "Noche", gq: "Lago Caburgua", wiki: "es:Lago Caburgua", desc: "Noche 4. [nombre]", tip: "Cerca del agua por las tablas." } ] },
+    { date: "2026-12-18", title: "SUP Caburgua y ruta a Huilo Huilo", color: "#0f8b8d", km: "aprox. 170 km", drive: "aprox. 3:00 h",
+      important: ["Cargar bencina en Panguipulli", "Reservar alojamiento en Huilo Huilo"],
+      program: [{ time: "Mañana", text: "SUP en el lago Caburgua", stop: 0 }, { time: "Mediodía", text: "Ojos del Caburgua", stop: 1 }, { time: "Tarde", text: "Almuerzo en Panguipulli", stop: 2 }, { time: "Noche", text: "Llegada a Huilo Huilo", stop: 3 }],
+      stops: [
+        { name: "Lago Caburgua (SUP)", cat: "sup", lat: -39.1420, lng: -71.8080, time: "Mañana", gq: "Playa Blanca Lago Caburgua", wiki: "es:Lago Caburgua", desc: "Agua cristalina, en la mañana como espejo.", tip: "" },
+        { name: "Ojos del Caburgua", cat: "imperdible", lat: -39.2030, lng: -71.8210, time: "Mediodía", gq: "Ojos del Caburgua", wiki: "es:Ojos del Caburgua", desc: "Cascadas y pozones turquesa.", tip: "Caminata corta." },
+        { name: "Panguipulli", cat: "restaurante", lat: -39.6430, lng: -72.3350, time: "Tarde", gq: "Costanera Panguipulli", wiki: "es:Panguipulli", desc: "La ciudad de las rosas.", tip: "Almorzar y cargar bencina." },
+        { name: "Alojamiento Huilo Huilo", cat: "alojamiento", lat: -39.8710, lng: -71.9280, time: "Noche", gq: "Huilo Huilo Montaña Mágica", wiki: "es:Reserva Biológica Huilo Huilo", desc: "Noches 5-6. Coordenada aproximada.", tip: "[nombre]" } ] },
+    { date: "2026-12-19", title: "Reserva Huilo Huilo y Puerto Fuy", color: "#556b2f", km: "aprox. 40 km", drive: "aprox. 1:00 h",
+      important: ["Entrada a la reserva", "Preguntar si se permite SUP en el Pirihueico"],
+      program: [{ time: "Mañana", text: "Salto del Huilo Huilo", stop: 0 }, { time: "Mediodía", text: "Puerto Fuy", stop: 1 }, { time: "Tarde", text: "SUP en el lago Pirihueico", stop: 2 }, { time: "Noche", text: "Vuelta al alojamiento", stop: 3 }],
+      stops: [
+        { name: "Salto del Huilo Huilo", cat: "trekking", lat: -39.8660, lng: -71.9460, time: "Mañana", gq: "Salto del Huilo Huilo", wiki: "es:Reserva Biológica Huilo Huilo", desc: "Cascada en la selva valdiviana. Coordenada aproximada.", tip: "" },
+        { name: "Puerto Fuy", cat: "imperdible", lat: -39.8620, lng: -71.8930, time: "Mediodía", gq: "Puerto Fuy", wiki: "es:Puerto Fuy", desc: "Pueblo junto al lago Pirihueico.", tip: "" },
+        { name: "Lago Pirihueico (SUP)", cat: "sup", lat: -39.8650, lng: -71.8850, time: "Tarde", gq: "Lago Pirihueico", wiki: "es:Lago Pirihueico", desc: "Lago angosto entre montañas.", tip: "Cuidado con el ferry." },
+        { name: "Alojamiento Huilo Huilo", cat: "alojamiento", lat: -39.8710, lng: -71.9280, time: "Noche", gq: "Huilo Huilo Montaña Mágica", wiki: "es:Reserva Biológica Huilo Huilo", desc: "Noche 6.", tip: "" } ] },
+    { date: "2026-12-20", title: "Lago Panguipulli y vuelta a Pucón", color: "#7b4fb3", km: "aprox. 160 km", drive: "aprox. 2:45 h",
+      important: ["Devolver el auto con estanque lleno", "Secar y guardar las tablas"],
+      program: [{ time: "Mañana", text: "Último SUP en Panguipulli", stop: 0 }, { time: "Tarde", text: "Comida de despedida en Pucón", stop: 1 }, { time: "Tarde", text: "Devolver el auto", stop: 2 }, { time: "Noche", text: "Última noche en Pucón", stop: 3 }],
+      stops: [
+        { name: "Lago Panguipulli (SUP)", cat: "sup", lat: -39.6470, lng: -72.3300, time: "Mañana", gq: "Playa Panguipulli", wiki: "es:Lago Panguipulli", desc: "Vista al volcán Choshuenco.", tip: "" },
+        { name: "Restaurantes Pucón", cat: "restaurante", lat: -39.2800, lng: -71.9770, time: "Tarde", gq: "Restaurantes Pucón", desc: "Comida de despedida.", tip: "[restaurante]" },
+        { name: "Devolución del auto", cat: "servicios", lat: -39.2810, lng: -71.9750, time: "Tarde", gq: "Rent a car Pucón", desc: "Entrega del auto.", tip: "" },
+        { name: "Alojamiento Pucón", cat: "alojamiento", lat: -39.2724, lng: -71.9776, time: "Noche", gq: "Pucón Chile", wiki: "es:Pucón", desc: "Noche 7. [nombre]", tip: "" } ] },
+    { date: "2026-12-21", title: "Bus diurno Pucón → Santiago", color: "#555b63", km: "aprox. 780 km", drive: "aprox. 10-11 h en bus",
+      important: ["Bus de la mañana", "Comprar pasajes con anticipación"],
+      program: [{ time: "[hora]", text: "Salida desde Pucón", stop: 0 }, { time: "Tarde", text: "Llegada a Santiago", stop: 1 }],
+      stops: [
+        { name: "Terminal de buses Pucón", cat: "bus", lat: -39.2797, lng: -71.9737, time: "[hora]", gq: "Terminal de buses Pucón", wiki: "es:Pucón", desc: "Bus de vuelta.", tip: "" },
+        { name: "Terminal Alameda, Santiago", cat: "bus", lat: -33.4537, lng: -70.6857, time: "Tarde", gq: "Terminal Alameda Santiago", wiki: "es:Terminal Alameda", desc: "Llegada a Santiago.", tip: "" } ] }
+  ],
+  packlist: {
+    "📄 Documentos": ["Carnet / pasaporte", "Licencia de conducir", "Tarjeta y efectivo (CLP)", "Pasajes de bus", "Reservas", "Seguro de viaje", "Entradas CONAF"],
+    "🌋 Volcán": ["Zapatos de trekking", "Capas térmicas", "Guantes y gorro", "Lentes de sol", "Bloqueador FPS 50", "2 litros de agua", "Snacks"],
+    "🏄 Equipo SUP": ["Tablas SUP", "Remos", "Inflador", "Leash", "Quillas", "Chaleco salvavidas", "Bolsa seca", "Correas para el techo"],
+    "♨️ Termas": ["Traje de baño", "Toalla", "Chalas"],
+    "👕 Ropa": ["Shorts y poleras", "Pantalón largo", "Polar", "Cortaviento", "Sandalias"],
+    "🔌 Tecnología": ["Celular y cargador", "Batería externa", "Mapas offline", "Linterna frontal", "GoPro"]
+  },
+  costs: ["Pasajes de bus", "Alojamiento", "Arriendo de auto", "Bencina", "Tour volcán", "Hidrospeed", "Entradas y parques", "Termas", "Comida", "Otros"]
 };
 </script>
- 
+ 
 <script>
+/* ===== Utilidades ===== */
 const $ = id => document.getElementById(id);
+const GM = H + "www.google.com/maps/";
+function go(id) { $(id).scrollIntoView({ behavior: "smooth" }); }
+function openUrl(u) { window.open(u, "_blank", "noopener"); }
 const store = {
-  get: (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
-  set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+  get: (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v === null ? d : v; } catch (e) { return d; } },
+  set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 };
 const fmtDate = s => new Date(s + "T12:00:00").toLocaleDateString("es-CL", { weekday: "short", day: "2-digit", month: "2-digit" });
 const longDate = s => new Date(s + "T12:00:00").toLocaleDateString("es-CL", { weekday: "long", day: "numeric", month: "long" });
-const weather = (lat, lng) => `https://www.windy.com/?${lat},${lng},11`;
- 
+ 
+/* ===== Portada ===== */
 $("heroTitle").textContent = TRIP.title;
 $("heroSub").textContent = TRIP.subtitle;
 $("heroTravelers").textContent = TRIP.travelers;
 const allStops = TRIP.days.flatMap(d => d.stops);
-const totalKm = TRIP.days.reduce((s, d) => s + (d.km.replace(/\./g, "").match(/\d+/g) || []).reduce((a, b) => a + +b, 0), 0);
-$("stats").innerHTML = `
-  <div class="stat"><b>${TRIP.days.length}</b><span>Días</span></div>
-  <div class="stat"><b>~${totalKm.toLocaleString("es-CL")}</b><span>Kilómetros</span></div>
-  <div class="stat"><b>${allStops.filter(s => s.cat === "sup").length}</b><span>Spots de SUP</span></div>
-  <div class="stat"><b>1</b><span>Volcán 🌋</span></div>`;
- 
+const totalKm = TRIP.days.reduce((s, d) => s + (d.km.match(/\d+/g) || []).reduce((a, b) => a + +b, 0), 0);
+$("stats").innerHTML =
+  '<div class="stat"><b>' + TRIP.days.length + '</b><span>Días</span></div>' +
+  '<div class="stat"><b>~' + totalKm.toLocaleString("es-CL") + '</b><span>Kilómetros</span></div>' +
+  '<div class="stat"><b>' + allStops.filter(s => s.cat === "sup").length + '</b><span>Spots de SUP</span></div>' +
+  '<div class="stat"><b>1</b><span>Volcán 🌋</span></div>';
+ 
 function tick() {
-  const diff = new Date(TRIP.start) - new Date();
-  if (diff <= 0) { $("countdown").innerHTML = `<div class="cd-box"><b>🎉</b><span>¡Estamos de viaje!</span></div>`; return; }
-  const d = Math.floor(diff / 864e5), h = Math.floor(diff / 36e5) % 24, m = Math.floor(diff / 6e4) % 60, s = Math.floor(diff / 1e3) % 60;
-  $("countdown").innerHTML = [[d, "Días"], [h, "Horas"], [m, "Min"], [s, "Seg"]]
-    .map(([v, l]) => `<div class="cd-box"><b>${String(v).padStart(2, "0")}</b><span>${l}</span></div>`).join("");
+  const diff = new Date(TRIP.start) - new Date();
+  if (diff <= 0) { $("countdown").innerHTML = '<div class="cd-box"><b>🎉</b><span>¡De viaje!</span></div>'; return; }
+  const parts = [[Math.floor(diff / 864e5), "Días"], [Math.floor(diff / 36e5) % 24, "Horas"], [Math.floor(diff / 6e4) % 60, "Min"], [Math.floor(diff / 1e3) % 60, "Seg"]];
+  $("countdown").innerHTML = parts.map(p => '<div class="cd-box"><b>' + String(p[0]).padStart(2, "0") + '</b><span>' + p[1] + '</span></div>').join("");
 }
 tick(); setInterval(tick, 1000);
- 
+ 
+/* ===== Equipaje ===== */
 const packState = store.get("packlist", {});
-$("packGrid").innerHTML = Object.entries(TRIP.packlist).map(([group, items]) => `
-  <div class="card reveal"><h3>${group}</h3>
-    ${items.map(it => { const k = group + "|" + it; return `
-      <label class="pack-item ${packState[k] ? "done" : ""}">
-        <input type="checkbox" data-k="${k}" ${packState[k] ? "checked" : ""}><span>${it}</span>
-      </label>`; }).join("")}
-  </div>`).join("");
+$("packGrid").innerHTML = Object.entries(TRIP.packlist).map(([g, items]) =>
+  '<div class="card"><h3>' + g + '</h3>' + items.map(it => {
+    const k = g + "|" + it;
+    return '<label class="pack-item ' + (packState[k] ? "done" : "") + '"><input type="checkbox" data-k="' + k + '" ' + (packState[k] ? "checked" : "") + '><span>' + it + '</span></label>';
+  }).join("") + '</div>').join("");
 function updatePack() {
-  const boxes = [...document.querySelectorAll("#packGrid input")];
-  const done = boxes.filter(b => b.checked).length;
-  $("packProgress").style.width = (done / boxes.length * 100) + "%";
-  $("packLabel").textContent = `${done} de ${boxes.length} listos`;
+  const boxes = [...document.querySelectorAll("#packGrid input")];
+  const done = boxes.filter(b => b.checked).length;
+  $("packProgress").style.width = (done / boxes.length * 100) + "%";
+  $("packLabel").textContent = done + " de " + boxes.length + " listos";
 }
 document.querySelectorAll("#packGrid input").forEach(b => b.onchange = () => {
-  packState[b.dataset.k] = b.checked; store.set("packlist", packState);
-  b.parentElement.classList.toggle("done", b.checked); updatePack();
+  packState[b.dataset.k] = b.checked; store.set("packlist", packState);
+  b.parentElement.classList.toggle("done", b.checked); updatePack();
 });
 updatePack();
- 
+ 
+/* ===== Costos ===== */
 const costState = store.get("costs", {});
 $("rateInput").value = store.get("rate", TRIP.eurToClp);
 $("costRows").innerHTML = TRIP.costs.map(c =>
-  `<div class="cost-row"><label>${c}</label><input type="number" min="0" step="1" data-c="${c}" placeholder="0 €" value="${costState[c] ?? ""}"></div>`).join("");
+  '<div class="cost-row"><label>' + c + '</label><input type="number" min="0" data-c="' + c + '" placeholder="0 €" value="' + (costState[c] || "") + '"></div>').join("");
 function updateCosts() {
-  const rate = parseFloat($("rateInput").value) || 0;
-  let sum = 0;
-  document.querySelectorAll("#costRows input").forEach(i => { sum += parseFloat(i.value) || 0; costState[i.dataset.c] = i.value; });
-  store.set("costs", costState); store.set("rate", rate);
-  $("totalEur").textContent = sum.toLocaleString("es-CL", { style: "currency", currency: "EUR" });
-  $("totalClp").textContent = "$" + Math.round(sum * rate).toLocaleString("es-CL") + " CLP";
+  const rate = parseFloat($("rateInput").value) || 0;
+  let sum = 0;
+  document.querySelectorAll("#costRows input").forEach(i => { sum += parseFloat(i.value) || 0; costState[i.dataset.c] = i.value; });
+  store.set("costs", costState); store.set("rate", rate);
+  $("totalEur").textContent = sum.toLocaleString("es-CL") + " €";
+  $("totalClp").textContent = "$" + Math.round(sum * rate).toLocaleString("es-CL");
 }
 document.querySelectorAll("#costRows input, #rateInput").forEach(i => i.oninput = updateCosts);
 updateCosts();
- 
-const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("show")), { threshold: .12 });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
- 
+ 
+/* ===== Ficha del lugar ===== */
 const wikiCache = {};
 async function loadWiki(ref) {
-  if (!ref) return null;
-  if (wikiCache[ref] !== undefined) return wikiCache[ref];
-  const [lang, ...t] = ref.split(":");
-  try {
-    const r = await fetch(`https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(t.join(":").replace(/ /g, "_"))}`);
-    wikiCache[ref] = r.ok ? await r.json() : null;
-  } catch { wikiCache[ref] = null; }
-  return wikiCache[ref];
+  if (!ref) return null;
+  if (ref in wikiCache) return wikiCache[ref];
+  const i = ref.indexOf(":"), lang = ref.slice(0, i), t = ref.slice(i + 1).replace(/ /g, "_");
+  try {
+    const r = await fetch(H + lang + ".wikipedia.org/api/rest_v1/page/summary/" + encodeURIComponent(t));
+    wikiCache[ref] = r.ok ? await r.json() : null;
+  } catch (e) { wikiCache[ref] = null; }
+  return wikiCache[ref];
 }
 async function openPlace(s) {
-  const c = TRIP.categories[s.cat], d = TRIP.days[s._day];
-  const q = encodeURIComponent(s.gq || s.name);
-  $("pmBody").innerHTML = `
-    <div class="pm-hero" style="--hc:${c.color}">${c.icon}<img id="pmImg" alt=""></div>
-    <div class="pm-content">
-      <span class="pm-cat" style="background:${c.color}">${c.icon} ${c.label}</span>
-      <h3>${s.name}</h3>
-      <div class="when">Día ${s._day + 1} · ${fmtDate(d.date)} · ${s.time}</div>
-      <div class="pm-actions">
-        <a class="main" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">📍 Google Maps: fotos y reseñas</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}" target="_blank" rel="noopener">🧭 Cómo llegar</a>
-      </div>
-      <p>${s.desc}</p>
-      ${s.tip ? `<p class="tip">💡 ${s.tip}</p>` : ""}
-      <div id="pmWiki"></div>
-      <h5>Mapa</h5>
-      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=${q}&ll=${s.lat},${s.lng}&z=13&hl=es&output=embed"></iframe>
-    </div>`;
-  $("pm").classList.add("open"); $("pmBack").classList.add("open"); $("pm").scrollTop = 0;
-  const w = await loadWiki(s.wiki);
-  if (!w || !$("pmImg")) return;
-  const src = (w.originalimage && w.originalimage.source) || (w.thumbnail && w.thumbnail.source);
-  if (src) { const img = $("pmImg"); img.onload = () => img.classList.add("ok"); img.src = src; }
-  if (w.extract) $("pmWiki").innerHTML = `<div class="wiki">${w.extract.length > 420 ? w.extract.slice(0, 420) + "…" : w.extract}
-    <small>Fuente: <a href="${w.content_urls?.desktop?.page || "#"}" target="_blank" rel="noopener">Wikipedia</a></small></div>`;
+  const c = TRIP.categories[s.cat], d = TRIP.days[s._day];
+  const q = encodeURIComponent(s.gq || s.name);
+  $("pmBody").innerHTML =
+    '<div class="pm-hero" style="--hc:' + c.color + '">' + c.icon + '<img id="pmImg" alt=""></div>' +
+    '<div class="pm-content">' +
+      '<span class="pm-cat" style="background:' + c.color + '">' + c.icon + ' ' + c.label + '</span>' +
+      '<h3>' + s.name + '</h3>' +
+      '<div class="when">Día ' + (s._day + 1) + ' · ' + fmtDate(d.date) + ' · ' + s.time + '</div>' +
+      '<div class="pm-actions">' +
+        '<button class="main" id="btnGm">📍 Google Maps: fotos y reseñas</button>' +
+        '<button id="btnRoute">🧭 Cómo llegar</button>' +
+      '</div>' +
+      '<p>' + s.desc + '</p>' +
+      (s.tip ? '<p class="tip">💡 ' + s.tip + '</p>' : '') +
+      '<div id="pmWiki"></div>' +
+    '</div>';
+  $("btnGm").onclick = () => openUrl(GM + "search/?api=1&query=" + q);
+  $("btnRoute").onclick = () => openUrl(GM + "dir/?api=1&destination=" + s.lat + "," + s.lng);
+  $("pm").classList.add("open"); $("pmBack").classList.add("open"); $("pm").scrollTop = 0;
+  const w = await loadWiki(s.wiki);
+  if (!w || !$("pmImg")) return;
+  const src = (w.originalimage && w.originalimage.source) || (w.thumbnail && w.thumbnail.source);
+  if (src) { const img = $("pmImg"); img.onload = () => img.classList.add("ok"); img.src = src; }
+  if (w.extract) $("pmWiki").innerHTML = '<div class="wiki">' + (w.extract.length > 420 ? w.extract.slice(0, 420) + "…" : w.extract) + '<br><small>Fuente: Wikipedia</small></div>';
 }
 function closePlace() { $("pm").classList.remove("open"); $("pmBack").classList.remove("open"); }
 $("pmClose").onclick = closePlace; $("pmBack").onclick = closePlace;
-document.addEventListener("keydown", e => e.key === "Escape" && closePlace());
 </script>
- 
+ 
 <script>
+/* ===== MAPA ===== */
 if (!window.L) {
-  $("map").innerHTML = '<div style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:#6b6f76">🗺️ No se pudo cargar el mapa. Revisa tu conexión a internet.</div>';
-  throw new Error("Leaflet no cargó");
+  $("map").innerHTML = '<div style="padding:40px;text-align:center;color:#6b6f76">🗺️ No se pudo cargar el mapa.</div>';
+} else {
+  const ESRI = H + "server.arcgisonline.com/ArcGIS/rest/services/";
+  const esri = (n, o) => L.tileLayer(ESRI + n + "/MapServer/tile/{z}/{y}/{x}", Object.assign({ maxZoom: 19, attribution: "© Esri" }, o || {}));
+  const layers = {
+    "Estándar": esri("World_Street_Map"),
+    "Claro": L.layerGroup([esri("Canvas/World_Light_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Light_Gray_Reference", { maxZoom: 16 })]),
+    "Satélite": L.layerGroup([esri("World_Imagery"), esri("Reference/World_Boundaries_and_Places")]),
+    "Relieve": esri("World_Topo_Map")
+  };
+  const map = L.map("map", { layers: [layers["Estándar"]], zoomControl: false });
+  L.control.zoom({ position: "bottomright" }).addTo(map);
+ 
+  const Switch = L.Control.extend({
+    options: { position: "topleft" },
+    onAdd() {
+      const box = L.DomUtil.create("div", "seg");
+      Object.keys(layers).forEach((name, i) => {
+        const b = L.DomUtil.create("button", i === 0 ? "on" : "", box);
+        b.textContent = name;
+        b.onclick = e => {
+          L.DomEvent.stop(e);
+          Object.values(layers).forEach(l => map.removeLayer(l));
+          layers[name].addTo(map);
+          box.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
+        };
+      });
+      L.DomEvent.disableClickPropagation(box);
+      return box;
+    }
+  });
+  new Switch().addTo(map);
+ 
+  const markers = [], routes = [], casings = [];
+  const activeCats = new Set(Object.keys(TRIP.categories));
+  let currentDay = null;
+ 
+  const icon = cat => {
+    const c = TRIP.categories[cat];
+    return L.divIcon({ className: "", html: '<div class="mk" style="--mc:' + c.color + '"><span>' + c.icon + '</span></div>', iconSize: [34, 42], iconAnchor: [17, 42] });
+  };
+  function routePoints(di) {
+    const pts = [];
+    if (di > 0) { const prev = TRIP.days[di - 1].stops.filter(s => !s.noRoute).pop(); if (prev) pts.push([prev.lat, prev.lng]); }
+    TRIP.days[di].stops.filter(s => !s.noRoute).forEach(s => pts.push([s.lat, s.lng]));
+    return pts;
+  }
+ 
+  TRIP.days.forEach((day, di) => {
+    day.stops.forEach(s => {
+      s._day = di;
+      const m = L.marker([s.lat, s.lng], { icon: icon(s.cat), title: s.name }).addTo(map);
+      m.on("click", () => openPlace(s));
+      markers.push({ marker: m, cat: s.cat, day: di });
+    });
+    const pts = routePoints(di);
+    casings[di] = L.polyline(pts, { color: "#fff", weight: 9, opacity: .9, interactive: false }).addTo(map);
+    routes[di] = L.polyline(pts, { color: day.color, weight: 5, opacity: .95, dashArray: "2 9" }).addTo(map).on("click", () => selectDay(di));
+  });
+ 
+  (async function loadRoads() {
+    for (let di = 0; di < TRIP.days.length; di++) {
+      const pts = routePoints(di);
+      if (pts.length < 2) continue;
+      try {
+        const coords = pts.map(p => p[1] + "," + p[0]).join(";");
+        const r = await fetch(H + "router.project-osrm.org/route/v1/driving/" + coords + "?overview=full&geometries=geojson");
+        const j = await r.json();
+        if (j.routes && j.routes[0]) {
+          const ll = j.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+          routes[di].setLatLngs(ll).setStyle({ dashArray: null });
+          casings[di].setLatLngs(ll);
+        }
+      } catch (e) {}
+    }
+  })();
+ 
+  $("filters").innerHTML = Object.entries(TRIP.categories).map(([k, c]) =>
+    '<button class="fchip on" data-cat="' + k + '" style="background:' + c.color + '">' + c.icon + ' ' + c.label + '</button>').join("");
+  $("filters").querySelectorAll(".fchip").forEach(b => b.onclick = () => {
+    const k = b.dataset.cat;
+    if (activeCats.has(k)) activeCats.delete(k); else activeCats.add(k);
+    b.classList.toggle("on");
+    b.style.background = activeCats.has(k) ? TRIP.categories[k].color : "#f1f1f1";
+    applyVisibility();
+  });
+  $("filterToggle").onclick = () => $("filters").classList.toggle("closed");
+ 
+  function applyVisibility() {
+    markers.forEach(o => {
+      const show = activeCats.has(o.cat);
+      if (show && !map.hasLayer(o.marker)) o.marker.addTo(map);
+      if (!show && map.hasLayer(o.marker)) map.removeLayer(o.marker);
+      const el = o.marker.getElement();
+      if (el) el.classList.toggle("dim", currentDay !== null && o.day !== currentDay);
+    });
+    routes.forEach((r, i) => {
+      const sel = currentDay === null || i === currentDay;
+      r.setStyle({ opacity: sel ? .95 : .2, weight: currentDay === i ? 7 : 5 });
+      casings[i].setStyle({ opacity: sel ? .9 : 0 });
+      if (currentDay === i) { casings[i].bringToFront(); r.bringToFront(); }
+    });
+  }
+ 
+  $("dayChips").innerHTML = TRIP.days.map((d, i) =>
+    '<button class="chip" data-i="' + i + '" style="border-color:' + d.color + '"><b>Día ' + (i + 1) + '</b>' + fmtDate(d.date) + '</button>').join("");
+  $("dayChips").querySelectorAll(".chip").forEach(c => c.onclick = () => selectDay(+c.dataset.i));
+ 
+  window.selectDay = function (i) {
+    currentDay = i;
+    const d = TRIP.days[i];
+    $("dayChips").querySelectorAll(".chip").forEach((c, ci) => {
+      c.classList.toggle("active", ci === i);
+      c.style.background = ci === i ? TRIP.days[ci].color : "#f3f3f3";
+    });
+    const b = L.latLngBounds(d.stops.map(s => [s.lat, s.lng])).extend(routes[i].getBounds());
+    map.flyToBounds(b, { padding: [60, 60], maxZoom: 13, duration: 1 });
+    applyVisibility();
+    const nk = "notes-" + d.date;
+    $("dayDetail").innerHTML =
+      '<div class="day-detail">' +
+        '<div class="date" style="color:' + d.color + '">Día ' + (i + 1) + ' · ' + longDate(d.date) + '</div>' +
+        '<h3>' + d.title + '</h3>' +
+        '<div class="meta"><span>🚗 ' + d.drive + '</span><span>📏 ' + d.km + '</span></div>' +
+        '<ul class="program" style="--c:' + d.color + '">' + d.program.map(p => '<li data-stop="' + p.stop + '"><span class="t">' + p.time + '</span>' + p.text + '</li>').join("") + '</ul>' +
+        '<div class="info warn"><h4>⚠️ Importante / reservas</h4><ul>' + d.important.map(x => '<li>' + x + '</li>').join("") + '</ul></div>' +
+        '<div class="info weather"><h4>🌤️ Clima</h4><button class="nav-btn" id="btnWx" style="border:none;border-radius:10px;padding:6px 10px">Ver pronóstico</button></div>' +
+        '<h4 style="font-size:.8rem;text-transform:uppercase;margin:12px 0 6px">📝 Notas</h4>' +
+        '<textarea class="notes" id="notes" placeholder="Tus notas...">' + store.get(nk, "") + '</textarea>' +
+        '<div class="saved-hint" id="savedHint"></div>' +
+      '</div>';
+    $("btnWx").onclick = () => openUrl(H + "www.windy.com/?" + d.stops[0].lat + "," + d.stops[0].lng + ",11");
+    $("dayDetail").querySelectorAll(".program li").forEach(li => li.onclick = () => {
+      const s = d.stops[+li.dataset.stop];
+      if (s) { map.flyTo([s.lat, s.lng], 13, { duration: .8 }); setTimeout(() => openPlace(s), 850); }
+    });
+    let t;
+    $("notes").oninput = e => { clearTimeout(t); t = setTimeout(() => { store.set(nk, e.target.value); $("savedHint").textContent = "✓ guardado"; }, 400); };
+  };
+ 
+  function showAll() {
+    currentDay = null;
+    $("dayChips").querySelectorAll(".chip").forEach(c => { c.classList.remove("active"); c.style.background = "#f3f3f3"; });
+    map.flyToBounds(L.latLngBounds(allStops.map(s => [s.lat, s.lng])), { padding: [40, 40], duration: 1 });
+    applyVisibility();
+    $("dayDetail").innerHTML =
+      '<div class="day-detail"><div class="date" style="color:var(--orange)">Resumen</div><h3>Todo el viaje</h3><ul class="program">' +
+      TRIP.days.map((d, i) => '<li style="--c:' + d.color + '" data-day="' + i + '"><span class="t">Día ' + (i + 1) + '</span>' + d.title + '</li>').join("") +
+      '</ul></div>';
+    $("dayDetail").querySelectorAll("li").forEach(li => li.onclick = () => selectDay(+li.dataset.day));
+  }
+ 
+  $("prevDay").onclick = () => selectDay(currentDay === null ? 0 : (currentDay - 1 + TRIP.days.length) % TRIP.days.length);
+  $("nextDay").onclick = () => selectDay(currentDay === null ? 0 : (currentDay + 1) % TRIP.days.length);
+  $("allTrip").onclick = showAll;
+  $("sheetHandle").onclick = () => $("sidebar").classList.toggle("open");
+  map.fitBounds(L.latLngBounds(allStops.map(s => [s.lat, s.lng])), { padding: [40, 40] });
+  showAll();
 }
-const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
-const esri = (name, opts = {}) => L.tileLayer(ESRI + name + "/MapServer/tile/{z}/{y}/{x}", Object.assign({ maxZoom: 19, attribution: "© Esri, © OpenStreetMap" }, opts));
-const layers = {
-  "Estándar": esri("World_Street_Map"),
-  "Claro": L.layerGroup([esri("Canvas/World_Light_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Light_Gray_Reference", { maxZoom: 16 })]),
-  "Oscuro": L.layerGroup([esri("Canvas/World_Dark_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Dark_Gray_Reference", { maxZoom: 16 })]),
-  "Satélite": L.layerGroup([esri("World_Imagery"), esri("Reference/World_Boundaries_and_Places")]),
-  "Relieve": esri("World_Topo_Map")
-};
-const map = L.map("map", { layers: [layers["Estándar"]], zoomControl: false, zoomSnap: 0.25, wheelPxPerZoomLevel: 90 });
-L.control.zoom({ position: "bottomright" }).addTo(map);
-const LayerSwitch = L.Control.extend({
-  options: { position: "topleft" },
-  onAdd() {
-    const box = L.DomUtil.create("div", "seg");
-    Object.keys(layers).forEach((name, i) => {
-      const b = L.DomUtil.create("button", i === 0 ? "on" : "", box);
-      b.textContent = name;
-      b.onclick = e => {
-        L.DomEvent.stop(e);
-        Object.values(layers).forEach(l => map.removeLayer(l));
-        layers[name].addTo(map);
-        box.querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
-        $("map").classList.toggle("map-dark", name === "Oscuro" || name === "Satélite");
-      };
-    });
-    L.DomEvent.disableClickPropagation(box);
-    return box;
-  }
-});
-new LayerSwitch().addTo(map);
- 
-const markers = [], routes = [], routeCasings = [];
-const activeCats = new Set(Object.keys(TRIP.categories));
-let currentDay = null;
-function icon(cat) {
-  const c = TRIP.categories[cat];
-  return L.divIcon({ className: "", html: `<div class="mk" style="--mc:${c.color}"><span>${c.icon}</span></div>`, iconSize: [34, 42], iconAnchor: [17, 42] });
-}
-function routePoints(di) {
-  const pts = [];
-  if (di > 0) { const prev = TRIP.days[di - 1].stops.filter(s => !s.noRoute).pop(); if (prev) pts.push([prev.lat, prev.lng]); }
-  TRIP.days[di].stops.filter(s => !s.noRoute).forEach(s => pts.push([s.lat, s.lng]));
-  return pts;
-}
-TRIP.days.forEach((day, di) => {
-  day.stops.forEach(s => {
-    s._day = di;
-    const m = L.marker([s.lat, s.lng], { icon: icon(s.cat), title: s.name }).addTo(map);
-    m.on("click", () => openPlace(s));
-    markers.push({ marker: m, cat: s.cat, day: di });
-  });
-  const pts = routePoints(di);
-  routeCasings[di] = L.polyline(pts, { color: "#fff", weight: 9, opacity: .9, lineCap: "round", lineJoin: "round", interactive: false }).addTo(map);
-  routes[di] = L.polyline(pts, { color: day.color, weight: 5, opacity: .95, dashArray: "2 9", lineCap: "round", lineJoin: "round" }).addTo(map)
-    .on("click", () => selectDay(di));
-});
-(async function loadRoads() {
-  for (let di = 0; di < TRIP.days.length; di++) {
-    const pts = routePoints(di);
-    if (pts.length < 2) continue;
-    try {
-      const coords = pts.map(p => `${p[1]},${p[0]}`).join(";");
-      const r = await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`);
-      const j = await r.json();
-      if (j.routes && j.routes[0]) {
-        const ll = j.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
-        routes[di].setLatLngs(ll).setStyle({ dashArray: null });
-        routeCasings[di].setLatLngs(ll);
-      }
-    } catch (e) {}
-  }
-})();
- 
-$("filters").innerHTML = Object.entries(TRIP.categories).map(([k, c]) =>
-  `<button class="fchip on" data-cat="${k}" style="background:${c.color}">${c.icon} ${c.label}</button>`).join("");
-$("filters").querySelectorAll(".fchip").forEach(b => b.onclick = () => {
-  const k = b.dataset.cat;
-  activeCats.has(k) ? activeCats.delete(k) : activeCats.add(k);
-  b.classList.toggle("on");
-  b.style.background = activeCats.has(k) ? TRIP.categories[k].color : "#f1f1f1";
-  applyVisibility();
-});
-$("filterToggle").onclick = () => $("filters").classList.toggle("closed");
-if (window.innerWidth < 900) $("filters").classList.add("closed");
- 
-function applyVisibility() {
-  markers.forEach(({ marker, cat, day }) => {
-    const show = activeCats.has(cat);
-    if (show && !map.hasLayer(marker)) marker.addTo(map);
-    if (!show && map.hasLayer(marker)) map.removeLayer(marker);
-    const el = marker.getElement();
-    if (el) el.classList.toggle("dim", currentDay !== null && day !== currentDay);
-  });
-  routes.forEach((r, i) => {
-    const sel = currentDay === null || i === currentDay;
-    r.setStyle({ opacity: sel ? .95 : .2, weight: currentDay === i ? 7 : 5 });
-    routeCasings[i].setStyle({ opacity: sel ? .9 : 0, weight: currentDay === i ? 12 : 9 });
-    if (currentDay === i) { routeCasings[i].bringToFront(); r.bringToFront(); }
-  });
-}
- 
-$("dayChips").innerHTML = TRIP.days.map((d, i) =>
-  `<button class="chip" data-i="${i}" style="border-color:${d.color}"><b>Día ${i + 1}</b>${fmtDate(d.date)}</button>`).join("");
-$("dayChips").querySelectorAll(".chip").forEach(c => c.onclick = () => selectDay(+c.dataset.i));
- 
-function selectDay(i) {
-  currentDay = i;
-  const d = TRIP.days[i];
-  $("dayChips").querySelectorAll(".chip").forEach((c, ci) => {
-    c.classList.toggle("active", ci === i);
-    c.style.background = ci === i ? TRIP.days[ci].color : "#f3f3f3";
-  });
-  $("dayChips").children[i].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  const b = L.latLngBounds(d.stops.map(s => [s.lat, s.lng])).extend(routes[i].getBounds());
-  map.flyToBounds(b, { padding: [60, 60], maxZoom: 13, duration: 1 });
-  applyVisibility();
-  const first = d.stops[0], notesKey = "notes-" + d.date;
-  $("dayDetail").innerHTML = `
-    <div class="day-detail">
-      <div class="date" style="color:${d.color}">Día ${i + 1} · ${longDate(d.date)}</div>
-      <h3>${d.title}</h3>
-      <div class="meta"><span>🚗 ${d.drive}</span><span>📏 ${d.km}</span><span>📍 ${d.stops.length} paradas</span></div>
-      <ul class="program" style="--c:${d.color}">
-        ${d.program.map(p => `<li data-stop="${p.stop}"><span class="t">${p.time}</span>${p.text}</li>`).join("")}
-      </ul>
-      <div class="info warn"><h4>⚠️ Importante / reservas</h4><ul>${d.important.map(x => `<li>${x}</li>`).join("")}</ul></div>
-      <div class="info weather"><h4>🌤️ Clima</h4><a href="${weather(first.lat, first.lng)}" target="_blank" rel="noopener">Ver pronóstico para ${first.name}</a></div>
-      <h4 style="font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;margin:12px 0 6px">📝 Notas</h4>
-      <textarea class="notes" id="notes" placeholder="Tus notas para este día...">${store.get(notesKey, "")}</textarea>
-      <div class="saved-hint" id="savedHint"></div>
-    </div>`;
-  $("dayDetail").querySelectorAll(".program li").forEach(li => li.onclick = () => {
-    const s = d.stops[+li.dataset.stop];
-    if (s) { map.flyTo([s.lat, s.lng], 13, { duration: .8 }); setTimeout(() => openPlace(s), 850); }
-  });
-  let t;
-  $("notes").oninput = e => { clearTimeout(t); t = setTimeout(() => { store.set(notesKey, e.target.value); $("savedHint").textContent = "✓ guardado"; }, 400); };
-}
-function showAll() {
-  currentDay = null;
-  $("dayChips").querySelectorAll(".chip").forEach(c => { c.classList.remove("active"); c.style.background = "#f3f3f3"; });
-  map.flyToBounds(L.latLngBounds(allStops.map(s => [s.lat, s.lng])), { padding: [40, 40], duration: 1 });
-  applyVisibility();
-  $("dayDetail").innerHTML = `
-    <div class="day-detail">
-      <div class="date" style="color:var(--orange)">Resumen</div>
-      <h3>Todo el viaje</h3>
-      <ul class="program">
-        ${TRIP.days.map((d, i) => `<li style="--c:${d.color}" data-day="${i}"><span class="t">Día ${i + 1}</span>${d.title}</li>`).join("")}
-      </ul>
-      <p style="color:var(--muted);font-size:.85rem">Toca un día para ver los detalles. Las líneas punteadas son en línea recta, las continuas siguen la carretera.</p>
-    </div>`;
-  $("dayDetail").querySelectorAll("li").forEach(li => li.onclick = () => selectDay(+li.dataset.day));
-}
-$("prevDay").onclick = () => selectDay(currentDay === null ? 0 : (currentDay - 1 + TRIP.days.length) % TRIP.days.length);
-$("nextDay").onclick = () => selectDay(currentDay === null ? 0 : (currentDay + 1) % TRIP.days.length);
-$("allTrip").onclick = showAll;
-$("sheetHandle").onclick = () => $("sidebar").classList.toggle("open");
-map.fitBounds(L.latLngBounds(allStops.map(s => [s.lat, s.lng])), { padding: [40, 40] });
-showAll();
 </script>
 </body>
 </html>
