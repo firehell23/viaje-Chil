@@ -43,6 +43,7 @@ textarea{width:100%;min-height:70px;border:1px solid #ddd;border-radius:10px;pad
 footer{text-align:center;padding:30px;background:var(--dark);color:#cfd2d6;font-size:.85rem}
 .pi small{display:block;color:var(--muted)}.at{margin-top:14px;font-weight:700;text-align:center}.at small{display:block;font-weight:400;color:var(--muted)}
 .pm{padding:0}.ph{height:200px;display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;overflow:hidden;border-radius:20px 20px 0 0}.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}.ph img.ok{opacity:1}.px{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;z-index:3}.wk{background:#f6f6f4;border-radius:12px;padding:12px;font-size:.88rem;margin-top:8px}
+.op{display:inline-block;background:#fff3e8;color:#b0501a;border:1px dashed #e8762d;border-radius:99px;padding:1px 9px;font-size:.7rem;font-weight:700;margin-left:8px;vertical-align:middle}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.app{display:block;height:auto}#map{height:55vh}.side{border:0}.body{max-height:none}.flt{max-width:160px}}
 </style></head><body>
 <header class="hero"><div><div class="badge">🇨🇱 Pucón · Villarrica · Huilo Huilo · Frutillar</div><h1 id="hT"></h1><p id="hS" style="margin-top:12px"></p><div class="cd" id="cd"></div>
@@ -62,7 +63,7 @@ cats:{alojamiento:["Alojamiento","🏠","#7a5230"],sup:["SUP","🏄","#1f6f9f"],
 days:[
 {date:"2026-12-14",sl:"Pucón · Noche 1",title:"Bus diurno Santiago → Pucón",color:"#2b2d31",km:"780 km",drive:"10-11 h en bus",
 important:["Bus de la mañana (Turbus, Pullman, JAC), pasajes con anticipación","Consultar el transporte de las tablas SUP","Cuevas Volcánicas solo si el bus llega temprano: verificar horario del tour"],
-program:[["[hora]","Salida desde Santiago",0],["Tarde","Llegada a Pucón y check-in",2],["Tarde","Cuevas Volcánicas, si da el tiempo",3]],
+program:[["[hora]","Salida desde Santiago",0],["Tarde","Llegada a Pucón y check-in",2],["Tarde","Cuevas Volcánicas, si da el tiempo",3,1]],
 stops:[{n:"Terminal Alameda, Santiago",c:"bus",la:-33.4537,ln:-70.6857,t:"[hora]",d:"Salida del bus a Pucón.",tip:"Revisar el terminal según la empresa."},
 {n:"Terminal de buses Pucón",c:"bus",la:-39.2797,ln:-71.9737,t:"Tarde",d:"Llegada a Pucón."},
 {n:"Alojamiento Pucón",c:"alojamiento",la:-39.2724,ln:-71.9776,t:"Tarde",d:"Noches 1-3. [nombre]",tip:"Preguntar por espacio para las tablas."},
@@ -77,7 +78,7 @@ stops:[{n:"Rent a car Pucón",c:"servicios",la:-39.281,ln:-71.975,t:"Mañana",d:
 {n:"Alojamiento Pucón",c:"alojamiento",la:-39.2724,ln:-71.9776,t:"Noche",d:"Noche 2."}]},
 {date:"2026-12-16",sl:"Pucón · Noche 3",title:"🌋 Ascenso al volcán Villarrica",color:"#b23a1e",km:"35 km",drive:"1:00 h",
 important:["¡Imperdible! Solo con guía certificado","Si se suspende por clima, pasa al día 17","Salida muy temprano","Plan B sin ascenso: Salto El León (cascada y termas, 10:00-18:00) y karting"],
-program:[["Madrugada","Ruta a la base del volcán",0],["Mañana","Ascenso al cráter",1],["Tarde","Bajada deslizándose por la nieve",1],["Noche","Descanso en Pucón",2]],
+program:[["Madrugada","Ruta a la base del volcán",0],["Mañana","Ascenso al cráter",1],["Tarde","Bajada deslizándose por la nieve",1],["Noche","Descanso en Pucón",2],["Plan B","Salto El León (si no hay ascenso)",3,1]],
 stops:[{n:"Base del volcán",c:"volcan",la:-39.393,ln:-71.955,t:"Madrugada",d:"Punto de partida del ascenso (coordenada aprox.).",tip:"La agencia pone crampones, piolet y casco."},
 {n:"Cráter del volcán Villarrica",c:"volcan",la:-39.42,ln:-71.939,t:"Mañana",d:"Uno de los volcanes más activos de Sudamérica.",tip:"Lentes de sol, bloqueador y capas abrigadas.",nr:1},
 {n:"Alojamiento Pucón",c:"alojamiento",la:-39.2724,ln:-71.9776,t:"Noche",d:"Noche 3."},
@@ -90,21 +91,20 @@ stops:[{n:"Parque Nacional Huerquehue",c:"trekking",la:-39.157,ln:-71.714,t:"Tem
 {n:"Salto El León",c:"termas",la:-39.39,ln:-71.84,t:"Tarde",d:"Cascada de más de 90 m con tinajas y piscinas termales en el bosque (coordenada aprox.).",tip:"Abre 10:00-18:00, confirmar horario de verano."},
 {n:"Termas Botánicas",c:"termas",la:-39.233,ln:-71.734,t:"Tarde",d:"Pozas termales en la naturaleza (coordenada aprox.).",tip:"Perfecto después del volcán."},
 {n:"Cabaña lago Caburgua",c:"alojamiento",la:-39.1475,ln:-71.814,t:"Noche",d:"Noche 4. [nombre]",tip:"Cerca del agua por las tablas."}]},
-{date:"2026-12-18",sl:"Huilo Huilo / Neltume · Noche 5",title:"SUP Caburgua y ruta a Huilo Huilo",color:"#0f8b8d",km:"170 km",drive:"3:00 h",
-important:["Cargar bencina en Panguipulli","Reservar alojamiento en Huilo Huilo"],
-program:[["Mañana","SUP en el lago Caburgua",0],["Mediodía","Ojos del Caburgua",1],["Tarde","Almuerzo en Panguipulli",2],["Noche","Llegada a Huilo Huilo",3]],
-stops:[{n:"Lago Caburgua (SUP)",c:"sup",la:-39.142,ln:-71.808,t:"Mañana",d:"Agua cristalina, en la mañana como espejo."},
-{n:"Ojos del Caburgua",c:"imperdible",la:-39.203,ln:-71.821,t:"Mediodía",d:"Cascadas y pozones turquesa.",tip:"Caminata corta."},
-{n:"Panguipulli",c:"restaurante",la:-39.643,ln:-72.335,t:"Tarde",d:"La ciudad de las rosas.",tip:"Almorzar y cargar bencina."},
+{date:"2026-12-18",sl:"Huilo Huilo / Neltume · Noche 5",title:"Caburgua, Termas Geométricas y Huilo Huilo",color:"#0f8b8d",km:"aprox. 200 km",drive:"aprox. 4:30 h",
+important:["Día largo: salir temprano de Caburgua","Verificar el camino de Termas Geométricas a Neltume (por Liquiñe); si no es buena opción, volver por Coñaripe y Panguipulli","Reservar entrada a Termas Geométricas","Cargar bencina antes de entrar a la zona de Coñaripe/Liquiñe","Reservar alojamiento en Huilo Huilo","Ojos del Caburgua es opcional si falta tiempo"],
+program:[["Temprano","SUP en el lago Caburgua",0],["Mañana","Ojos del Caburgua",1,1],["Tarde","Termas Geométricas (2-3 h)",2],["Noche","Ruta a Huilo Huilo y check-in",3]],
+stops:[{n:"Lago Caburgua (SUP)",c:"sup",la:-39.142,ln:-71.808,t:"Temprano",d:"Agua cristalina, en la mañana como espejo."},
+{n:"Ojos del Caburgua",c:"imperdible",la:-39.203,ln:-71.821,t:"Mañana",d:"Cascadas y pozones turquesa.",tip:"Caminata corta. Opcional si falta tiempo."},
+{n:"Termas Geométricas",c:"termas",la:-39.6,ln:-71.93,t:"Tarde",d:"Pozas termales entre pasarelas rojas en el bosque (coordenada aprox.).",tip:"Llevar chalas y toalla. Reservar entrada."},
 {n:"Alojamiento Huilo Huilo",c:"alojamiento",la:-39.871,ln:-71.928,t:"Noche",d:"Noches 5-6 (coordenada aprox.).",tip:"[nombre]"}]},
 {date:"2026-12-19",sl:"Huilo Huilo / Neltume · Noche 6",title:"Reserva Huilo Huilo y Puerto Fuy",color:"#556b2f",km:"40 km",drive:"1:00 h",
-important:["Entrada a la reserva","Preguntar si se permite SUP en el Pirihueico","Opcional (día largo): Termas Geométricas en lugar de Puerto Fuy y SUP, ruta por Liquiñe (verificar el camino)"],
-program:[["Mañana","Salto del Huilo Huilo",0],["Mediodía","Puerto Fuy",1],["Tarde","SUP en el lago Pirihueico",2],["Opcional","Termas Geométricas (alternativa al día en Puerto Fuy)",4],["Noche","Vuelta al alojamiento",3]],
+important:["Entrada a la reserva","Preguntar si se permite SUP en el Pirihueico"],
+program:[["Mañana","Salto del Huilo Huilo",0],["Mediodía","Puerto Fuy",1],["Tarde","SUP en el lago Pirihueico",2],["Noche","Vuelta al alojamiento",3]],
 stops:[{n:"Salto del Huilo Huilo",c:"trekking",la:-39.866,ln:-71.946,t:"Mañana",d:"Cascada en la selva valdiviana (coordenada aprox.)."},
 {n:"Puerto Fuy",c:"imperdible",la:-39.862,ln:-71.893,t:"Mediodía",d:"Pueblo junto al lago Pirihueico."},
 {n:"Lago Pirihueico (SUP)",c:"sup",la:-39.865,ln:-71.885,t:"Tarde",d:"Lago angosto entre montañas.",tip:"Cuidado con el ferry."},
-{n:"Alojamiento Huilo Huilo",c:"alojamiento",la:-39.871,ln:-71.928,t:"Noche",d:"Noche 6."},
-{n:"Termas Geométricas (opcional)",c:"termas",la:-39.6,ln:-71.93,t:"Opcional",d:"Pozas termales entre pasarelas rojas en el bosque (coordenada aprox.).",tip:"Llevar chalas y toalla. Reservar entrada.",nr:1,ref:3}]},
+{n:"Alojamiento Huilo Huilo",c:"alojamiento",la:-39.871,ln:-71.928,t:"Noche",d:"Noche 6."}]},
 {date:"2026-12-20",sl:"Frutillar · Noche 7",title:"Huilo Huilo → Frutillar y SUP en el Llanquihue",color:"#7b4fb3",km:"aprox. 330 km",drive:"aprox. 4:30 h",
 important:["Salir temprano de Huilo Huilo","Reservar alojamiento en Frutillar (o Puerto Varas)","El viento en el Llanquihue suele subir en la tarde: SUP temprano o al atardecer","Auto: se devuelve en Puerto Montt el día 21"],
 program:[["Temprano","Salida de Huilo Huilo",0],["Tarde","Frutillar: costanera y kuchen",1],["Tarde","SUP en el lago Llanquihue, vista al Osorno",2],["Noche","Alojamiento en Frutillar",3]],
@@ -114,7 +114,7 @@ stops:[{n:"Alojamiento Huilo Huilo",c:"alojamiento",la:-39.871,ln:-71.928,t:"Tem
 {n:"Alojamiento Frutillar",c:"alojamiento",la:-41.1258,ln:-73.056,t:"Noche",d:"Noche 7. [nombre]"}]},
 {date:"2026-12-21",sl:"Bus nocturno Puerto Montt → Santiago (sin alojamiento)",title:"Puerto Varas, Puerto Montt y bus nocturno a Santiago",color:"#555b63",km:"aprox. 60 km + bus",drive:"aprox. 1:15 h en auto + 12-14 h en bus",
 important:["Llegada a Santiago el 22/12 por la mañana","Comprar con anticipación el bus nocturno Puerto Montt → Santiago","Consultar si el bus acepta las 3 tablas SUP","Devolver el auto en Puerto Montt (recargo one-way)","Opcional: Saltos del Petrohué (ca. 1 h desde Frutillar) si queda tiempo"],
-program:[["Mañana","Puerto Varas: costanera y vista al Osorno",1],["Mediodía","Opcional: Saltos del Petrohué",2],["Tarde","Puerto Montt: devolver el auto",3],["Noche","Bus nocturno a Santiago",4]],
+program:[["Mañana","Puerto Varas: costanera y vista al Osorno",1],["Mediodía","Saltos del Petrohué",2,1],["Tarde","Puerto Montt: devolver el auto",3],["Noche","Bus nocturno a Santiago",4]],
 stops:[{n:"Alojamiento Frutillar",c:"alojamiento",la:-41.1258,ln:-73.056,t:"Mañana",d:"Salida."},
 {n:"Puerto Varas",c:"imperdible",la:-41.319,ln:-72.985,t:"Mañana",d:"Ciudad a orillas del Llanquihue con vista al Osorno."},
 {n:"Saltos del Petrohué (opcional)",c:"imperdible",la:-41.1627,ln:-72.4467,t:"Opcional",d:"Cascadas y lava junto al volcán Osorno (coordenada aprox.).",tip:"Solo si queda tiempo.",nr:1,ref:1,to:3},
@@ -169,7 +169,7 @@ $("chips").querySelectorAll(".chip").forEach(c=>c.onclick=()=>sel(+c.dataset.i))
 function sel(i){cur=i;const d=D[i],nk="notes-"+d.date;
 $("chips").querySelectorAll(".chip").forEach((c,k)=>{c.classList.toggle("on",k==i);c.style.background=k==i?D[k].color:"#f3f3f3"});
 map.flyToBounds(L.latLngBounds(d.stops.map(s=>[s.la,s.ln])).extend(rt[i].getBounds()),{padding:[60,60],maxZoom:13,duration:1});vis();
-$("detail").innerHTML=`<div class="date" style="color:${d.color}">Día ${i+1} · ${ld(d.date)}</div><h3>${d.title}</h3><div class="meta"><span>🚗 ${d.drive}</span><span>📏 ${d.km}</span><span>🏠 ${d.sl}</span></div><ul class="prog" style="--c:${d.color}">${d.program.map(p=>`<li data-s="${p[2]}"><span class="t">${p[0]}</span>${p[1]}</li>`).join("")}</ul><div class="info" style="background:#e9f3f9;border-color:var(--lake)"><h4>🚗 Tiempos de viaje</h4><div id="dr">Cargando…</div></div><div class="info"><h4>⚠️ Importante</h4><ul>${d.important.map(x=>`<li>${x}</li>`).join("")}</ul></div><h4 style="font-size:.78rem;text-transform:uppercase;margin:10px 0 6px">📝 Notas</h4><textarea id="nt" placeholder="Tus notas...">${st.get(nk,"")}</textarea>`;
+$("detail").innerHTML=`<div class="date" style="color:${d.color}">Día ${i+1} · ${ld(d.date)}</div><h3>${d.title}</h3><div class="meta"><span>🚗 ${d.drive}</span><span>📏 ${d.km}</span><span>🏠 ${d.sl}</span></div><ul class="prog" style="--c:${d.color}">${d.program.map(p=>`<li data-s="${p[2]}"><span class="t">${p[0]}</span>${p[1]}${p[3]?'<span class="op">Opcional</span>':""}</li>`).join("")}</ul><div class="info" style="background:#e9f3f9;border-color:var(--lake)"><h4>🚗 Tiempos de viaje</h4><div id="dr">Cargando…</div></div><div class="info"><h4>⚠️ Importante</h4><ul>${d.important.map(x=>`<li>${x}</li>`).join("")}</ul></div><h4 style="font-size:.78rem;text-transform:uppercase;margin:10px 0 6px">📝 Notas</h4><textarea id="nt" placeholder="Tus notas...">${st.get(nk,"")}</textarea>`;
 drv(i);$("detail").querySelectorAll(".prog li").forEach(li=>li.onclick=()=>{const s=d.stops[+li.dataset.s];if(s){map.flyTo([s.la,s.ln],13,{duration:.8})}});
 $("nt").oninput=e=>st.set(nk,e.target.value)}
 function showAll(){cur=null;$("chips").querySelectorAll(".chip").forEach(c=>{c.classList.remove("on");c.style.background="#f3f3f3"});map.flyToBounds(L.latLngBounds(all.map(s=>[s.la,s.ln])),{padding:[40,40],duration:1});vis();
@@ -177,7 +177,7 @@ $("detail").innerHTML=`<div class="date" style="color:var(--orange)">Resumen</di
 $("detail").querySelectorAll("li").forEach(li=>li.onclick=()=>sel(+li.dataset.d))}
 $("prev").onclick=()=>sel(cur===null?0:(cur-1+D.length)%D.length);$("next").onclick=()=>sel(cur===null?0:(cur+1)%D.length);$("all").onclick=showAll;
 map.fitBounds(L.latLngBounds(all.map(s=>[s.la,s.ln])),{padding:[40,40]});showAll()}
-const N=3,ACT=[["🌋 Volcán Villarrica (guía y equipo)",85000,120000,"Estimado"],["🚡 Telesilla del volcán (opcional)",10000,20000,"Según operador"],["🌊 Hidrospeed, río Trancura",30000,40000,"Estimado"],["🕳️ Cuevas Volcánicas, Pucón",18000,18000,"Dato tuyo"],["🏎️ Karting, Pucón",15000,15000,"Dato tuyo"],["♨️ Termas Geométricas (opcional)",40000,50000,"Estimado",1],["♨️ Termas Botánicas",25000,35000,"Estimado"],["💦 Salto El León (cascada y termas)",15000,30000,"Estimado"],["🥾 P. N. Huerquehue (CONAF)",8000,12000,"Estimado"],["💧 Ojos del Caburgua",3000,5000,"Estimado"],["🌲 Huilo Huilo, salto y reserva",5000,10000,"Estimado"],["🏠 Alojamiento Pucón, 3 noches (cabaña/depto para 3)",60000,100000,"Estimado: 60.000–100.000 por noche"],["🏠 Alojamiento Frutillar, 1 noche",20000,33000,"Estimado: 60.000–100.000 por noche"],["🏠 Cabaña Caburgua, 1 noche",23000,37000,"Estimado: 70.000–110.000 por noche"],["🏠 Huilo Huilo / Neltume, 2 noches",53000,100000,"Estimado: 80.000–150.000 por noche"],["🍽️ Comida, 8 días (super y restaurantes)",120000,240000,"Estimado: 15.000–30.000 por día"],["🏄 SUP (tablas propias)",0,0,"Sin costo"]];
+const N=3,ACT=[["🌋 Volcán Villarrica (guía y equipo)",85000,120000,"Estimado"],["🚡 Telesilla del volcán (opcional)",10000,20000,"Según operador"],["🌊 Hidrospeed, río Trancura",30000,40000,"Estimado"],["🕳️ Cuevas Volcánicas, Pucón",18000,18000,"Dato tuyo"],["🏎️ Karting, Pucón",15000,15000,"Dato tuyo"],["♨️ Termas Geométricas",40000,50000,"Estimado"],["♨️ Termas Botánicas",25000,35000,"Estimado"],["💦 Salto El León (cascada y termas)",15000,30000,"Estimado"],["🥾 P. N. Huerquehue (CONAF)",8000,12000,"Estimado"],["💧 Ojos del Caburgua",3000,5000,"Estimado"],["🌲 Huilo Huilo, salto y reserva",5000,10000,"Estimado"],["🏠 Alojamiento Pucón, 3 noches (cabaña/depto para 3)",60000,100000,"Estimado: 60.000–100.000 por noche"],["🏠 Alojamiento Frutillar, 1 noche",20000,33000,"Estimado: 60.000–100.000 por noche"],["🏠 Cabaña Caburgua, 1 noche",23000,37000,"Estimado: 70.000–110.000 por noche"],["🏠 Huilo Huilo / Neltume, 2 noches",53000,100000,"Estimado: 80.000–150.000 por noche"],["🍽️ Comida, 8 días (super y restaurantes)",120000,240000,"Estimado: 15.000–30.000 por día"],["🏄 SUP (tablas propias)",0,0,"Sin costo"]];
 const as=st.get("act",{});
 function ua(){const r=parseFloat($("rate").value)||1050,f=v=>v.toLocaleString("es-CL"),e=v=>Math.round(v/r);let a=0,b=0;
 $("act").innerHTML=ACT.map((x,i)=>{const on=as[i]===undefined?!x[4]:as[i];if(on){a+=x[1];b+=x[2]}const rg=x[2]>x[1]?"–"+f(x[2]):"";const er=x[2]>x[1]?"–"+e(x[2]):"";
