@@ -52,6 +52,7 @@ footer{text-align:center;padding:30px;background:var(--dark);color:#cfd2d6;font-
 <section id="mapa"><div class="wrap"><div class="title"><h2>Nuestra ruta</h2><p>Toca un día y el mapa se acerca. Toca un marcador para ver detalles. Las líneas de trazos largos son rutas opcionales.</p></div>
 <div class="app"><aside class="side"><div class="head"><div class="chips" id="chips"></div><div class="acts"><button id="prev">◀</button><button class="all" id="all">🌎 Todo el viaje</button><button id="next">▶</button></div></div><div class="body" id="detail"></div></aside>
 <div id="map"></div><div class="flt"><h4 id="ft">Filtros ▾</h4><div class="fs c" id="fs"></div></div></div></div></section>
+<section id="consejos"><div class="wrap" style="max-width:760px"><div class="title"><h2>Consejos prácticos</h2></div><div class="card"><ul style="padding-left:18px;line-height:1.9"><li>Temporada alta desde mediados de diciembre: reservar con anticipación el tour del volcán, las Termas Geométricas y el alojamiento en Huilo Huilo.</li><li>Antes de subir al volcán, revisar la alerta volcánica y el pronóstico: los tours se suspenden con frecuencia.</li><li>En las termas: chalas, toalla y efectivo, no todas aceptan tarjeta.</li><li>Repelente de insectos: en diciembre y enero hay tábanos en los bosques.</li></ul></div></div></section>
 <section id="equipaje" style="background:#ece6db"><div class="wrap"><div class="title"><h2>Lista de equipaje</h2><p>Se guarda en este dispositivo.</p></div><div class="bar"><div id="pp"></div></div><p class="title" id="pl"></p><div class="grid" id="pg"></div></div></section>
 <section id="costos"><div class="wrap" style="max-width:760px"><div class="title"><h2>Costos</h2><p>Montos en EUR, el total se convierte a CLP.</p></div><div class="card"><div id="cr"></div><p class="rate" style="margin-top:10px">1 EUR = <input type="number" id="rate" style="width:100px"> CLP</p><div class="tot"><div><span>Total EUR</span><b id="te">0 €</b></div><div><span>Total CLP</span><b id="tc">0</b></div></div></div></div></section>
 <section id="actividades" style="background:#ece6db"><div class="wrap" style="max-width:760px"><div class="title"><h2>Costos: actividades, alojamiento y comida</h2><p>Precios aproximados en CLP por persona. Desmarca lo que no harán. Verificar antes de reservar.</p></div><div class="card"><div id="act"></div><div class="at" id="atot"></div></div></div></section>
@@ -61,7 +62,7 @@ footer{text-align:center;padding:30px;background:var(--dark);color:#cfd2d6;font-
 const TRIP={title:"Volcanes, lagos y araucarias",subtitle:"14-21 de diciembre de 2026 | Sur de Chile",start:"2026-12-14T07:30:00-03:00",rate:1050,
 cats:{alojamiento:["Alojamiento","🏠","#7a5230"],sup:["SUP","🏄","#1f6f9f"],termas:["Termas","♨️","#b0306a"],trekking:["Trekking","🥾","#2f6b3a"],volcan:["Volcán","🌋","#b23a1e"],restaurante:["Restaurante","🍽️","#e8762d"],servicios:["Bencina / compras","⛽","#555b63"],imperdible:["Imperdible","📸","#7b4fb3"],bus:["Bus","🚌","#2b2d31"]},
 days:[
-{date:"2026-12-14",sl:"Pucón · Noche 1",title:"Bus diurno Santiago → Pucón",color:"#2b2d31",km:"780 km",drive:"10-11 h en bus",
+{date:"2026-12-14",bus:1,sl:"Pucón · Noche 1",title:"Bus diurno Santiago → Pucón",color:"#2b2d31",km:"780 km",drive:"10-11 h en bus",
 important:["Bus de la mañana (Turbus, Pullman, JAC), pasajes con anticipación","Consultar el transporte de las tablas SUP","Cuevas Volcánicas solo si el bus llega temprano: verificar horario del tour"],
 program:[["[hora]","Salida desde Santiago",0],["Tarde","Llegada a Pucón y check-in",2],["Tarde","Cuevas Volcánicas, si da el tiempo",3,1]],
 stops:[{n:"Terminal Alameda, Santiago",c:"bus",la:-33.4537,ln:-70.6857,t:"[hora]",d:"Salida del bus a Pucón.",tip:"Revisar el terminal según la empresa."},
@@ -78,20 +79,23 @@ stops:[{n:"Rent a car Pucón",c:"servicios",la:-39.281,ln:-71.975,t:"Mañana",d:
 {n:"Alojamiento Pucón",c:"alojamiento",la:-39.2724,ln:-71.9776,t:"Noche",d:"Noche 2."}]},
 {date:"2026-12-16",sl:"Pucón · Noche 3",title:"🌋 Ascenso al volcán Villarrica",color:"#b23a1e",km:"35 km",drive:"1:00 h",
 important:["¡Imperdible! Solo con guía certificado","Si se suspende por clima, pasa al día 17","Salida muy temprano","Plan B sin ascenso: Salto El León (cascada y termas, 10:00-18:00) y karting"],
-program:[["Madrugada","Ruta a la base del volcán",0],["Mañana","Ascenso al cráter",1],["Tarde","Bajada deslizándose por la nieve",1],["Noche","Descanso en Pucón",2],["Plan B","Salto El León (si no hay ascenso)",3,1]],
+program:[["Madrugada","Ruta a la base del volcán",0],["Mañana","Ascenso al cráter",1],["Tarde","Bajada deslizándose por la nieve",1],["Noche","Descanso en Pucón",2],["Plan B","Salto El León (si no hay ascenso)",3,1],["Noche","Termas Los Pozones (tras el volcán)",4,1]],
 stops:[{n:"Base del volcán",c:"volcan",la:-39.393,ln:-71.955,t:"Madrugada",d:"Punto de partida del ascenso (coordenada aprox.).",tip:"La agencia pone crampones, piolet y casco."},
 {n:"Cráter del volcán Villarrica",c:"volcan",la:-39.42,ln:-71.939,t:"Mañana",d:"Uno de los volcanes más activos de Sudamérica.",tip:"Lentes de sol, bloqueador y capas abrigadas.",nr:1},
 {n:"Alojamiento Pucón",c:"alojamiento",la:-39.2724,ln:-71.9776,t:"Noche",d:"Noche 3."},
-{n:"Salto El León (Plan B)",c:"termas",la:-39.39,ln:-71.84,t:"Plan B",d:"Cascada de más de 90 m con tinajas y piscinas termales en el bosque (coordenada aprox.).",tip:"Abre 10:00-18:00, confirmar horario de verano.",nr:1,ref:2}]},
-{date:"2026-12-17",sl:"Cabaña en el lago Caburgua · Noche 4",title:"Huerquehue y Termas Botánicas",color:"#2f6b3a",km:"90 km",drive:"2:15 h",
+{n:"Salto El León (Plan B)",c:"termas",la:-39.39,ln:-71.84,t:"Plan B",d:"Cascada de más de 90 m con tinajas y piscinas termales en el bosque (coordenada aprox.).",tip:"Abre 10:00-18:00, confirmar horario de verano.",nr:1,ref:2},
+{n:"Termas Los Pozones (opcional)",c:"termas",la:-39.2142,ln:-71.7686,t:"Noche",d:"Pozas termales junto al río, suelen abrir hasta tarde (coordenada aprox.).",tip:"Llevar efectivo, chalas y toalla.",nr:1,ref:2}]},
+{date:"2026-12-17",sl:"Cabaña en el lago Caburgua · Noche 4",title:"Huerquehue y Termas Botánicas",color:"#2f6b3a",km:"aprox. 140 km",drive:"aprox. 3:30 h",
 important:["Día de reserva para el volcán","Entrada a Huerquehue en línea (CONAF)","Reservar Termas Botánicas","Día largo: Salto El León cierra a las 18:00, salir temprano. Si falta tiempo, acortar el sendero"],
-program:[["Temprano","Parque Nacional Huerquehue",0],["Mañana","Sendero Los Lagos",1],["Tarde","Salto El León (cascada y termas)",2],["Tarde","Termas Botánicas",3],["Noche","Cabaña en Caburgua",4]],
+program:[["Temprano","Parque Nacional Huerquehue",0],["Mañana","Sendero Los Lagos",1],["Tarde","Salto El León (cascada y termas)",2],["Tarde","Termas Botánicas",3],["Noche","Cabaña en Caburgua",4],["Opcional","Salto La China (junto al Salto El León)",5,1],["Alternativa","Santuario El Cañi (en vez de Huerquehue, si el día es largo)",6,1]],
 stops:[{n:"Parque Nacional Huerquehue",c:"trekking",la:-39.157,ln:-71.714,t:"Temprano",d:"Entrada junto al lago Tinquilco.",tip:"Llegar temprano."},
 {n:"Sendero Los Lagos",c:"trekking",la:-39.133,ln:-71.7,t:"Mañana",d:"Lagunas entre araucarias.",tip:"Llevar agua y comida.",nr:1},
 {n:"Salto El León",c:"termas",la:-39.39,ln:-71.84,t:"Tarde",d:"Cascada de más de 90 m con tinajas y piscinas termales en el bosque (coordenada aprox.).",tip:"Abre 10:00-18:00, confirmar horario de verano."},
 {n:"Termas Botánicas",c:"termas",la:-39.233,ln:-71.734,t:"Tarde",d:"Pozas termales en la naturaleza (coordenada aprox.).",tip:"Perfecto después del volcán."},
-{n:"Cabaña lago Caburgua",c:"alojamiento",la:-39.1475,ln:-71.814,t:"Noche",d:"Noche 4. [nombre]",tip:"Cerca del agua por las tablas."}]},
-{date:"2026-12-18",sl:"Huilo Huilo / Neltume · Noche 5",title:"Caburgua, Termas Geométricas y Huilo Huilo",color:"#0f8b8d",km:"aprox. 200 km",drive:"aprox. 4:30 h",
+{n:"Cabaña lago Caburgua",c:"alojamiento",la:-39.1475,ln:-71.814,t:"Noche",d:"Noche 4. [nombre]",tip:"Cerca del agua por las tablas."},
+{n:"Salto La China (opcional)",c:"imperdible",la:-39.4,ln:-71.83,t:"Opcional",d:"Cascada junto al Salto El León, desvío de unos 30 min (coordenada aprox.).",nr:1,ref:2},
+{n:"Santuario El Cañi (opcional)",c:"trekking",la:-39.18,ln:-71.76,t:"Alternativa",d:"Caminata por bosque de araucarias hasta pequeñas lagunas (coordenada aprox.).",tip:"Alternativa más tranquila a Huerquehue.",nr:1}]},
+{date:"2026-12-18",sl:"Huilo Huilo / Neltume · Noche 5",title:"Caburgua, Termas Geométricas y Huilo Huilo",color:"#0f8b8d",km:"aprox. 200-290 km",drive:"aprox. 4:30-6 h",
 important:["Día largo: salir temprano de Caburgua","Verificar el camino de Termas Geométricas a Neltume (por Liquiñe); si no es buena opción, volver por Coñaripe y Panguipulli","Reservar entrada a Termas Geométricas","Cargar bencina antes de entrar a la zona de Coñaripe/Liquiñe","Reservar alojamiento en Huilo Huilo","Ojos del Caburgua es opcional si falta tiempo"],
 program:[["Temprano","SUP en el lago Caburgua",0],["Mañana","Ojos del Caburgua",1,1],["Tarde","Termas Geométricas (2-3 h)",2],["Noche","Ruta a Huilo Huilo y check-in",3]],
 stops:[{n:"Lago Caburgua (SUP)",c:"sup",la:-39.142,ln:-71.808,t:"Temprano",d:"Agua cristalina, en la mañana como espejo."},
@@ -100,21 +104,21 @@ stops:[{n:"Lago Caburgua (SUP)",c:"sup",la:-39.142,ln:-71.808,t:"Temprano",d:"Ag
 {n:"Alojamiento Huilo Huilo",c:"alojamiento",la:-39.871,ln:-71.928,t:"Noche",d:"Noches 5-6 (coordenada aprox.).",tip:"[nombre]"}]},
 {date:"2026-12-19",sl:"Huilo Huilo / Neltume · Noche 6",title:"Reserva Huilo Huilo y Puerto Fuy",color:"#556b2f",km:"40 km",drive:"1:00 h",
 important:["Entrada a la reserva","Preguntar si se permite SUP en el Pirihueico"],
-program:[["Mañana","Salto del Huilo Huilo",0],["Mediodía","Puerto Fuy",1],["Tarde","SUP en el lago Pirihueico",2],["Noche","Vuelta al alojamiento",3]],
+program:[["Mañana","Salto del Huilo Huilo",0],["Mediodía","Puerto Fuy",1],["Tarde","SUP en el lago Pirihueico",2],["Noche","Vuelta al alojamiento",3],["Opcional","Ferry por el Pirihueico desde Puerto Fuy (ca. 1 h por tramo)",1,1],["Opcional","Más senderos en la Reserva Huilo Huilo",0,1]],
 stops:[{n:"Salto del Huilo Huilo",c:"trekking",la:-39.866,ln:-71.946,t:"Mañana",d:"Cascada en la selva valdiviana (coordenada aprox.)."},
 {n:"Puerto Fuy",c:"imperdible",la:-39.862,ln:-71.893,t:"Mediodía",d:"Pueblo junto al lago Pirihueico."},
 {n:"Lago Pirihueico (SUP)",c:"sup",la:-39.865,ln:-71.885,t:"Tarde",d:"Lago angosto entre montañas.",tip:"Cuidado con el ferry."},
 {n:"Alojamiento Huilo Huilo",c:"alojamiento",la:-39.871,ln:-71.928,t:"Noche",d:"Noche 6."}]},
-{date:"2026-12-20",sl:"Frutillar · Noche 7",title:"Huilo Huilo → Frutillar y SUP en el Llanquihue",color:"#7b4fb3",km:"aprox. 330 km",drive:"aprox. 4:30 h",
+{date:"2026-12-20",sl:"Frutillar · Noche 7",title:"Huilo Huilo → Frutillar y SUP en el Llanquihue",color:"#7b4fb3",km:"aprox. 320 km",drive:"aprox. 4:30-5 h",
 important:["Salir temprano de Huilo Huilo","Reservar alojamiento en Frutillar (o Puerto Varas)","El viento en el Llanquihue suele subir en la tarde: SUP temprano o al atardecer","Auto: se devuelve en Puerto Montt el día 21"],
-program:[["Temprano","Salida de Huilo Huilo",0],["Tarde","Frutillar: costanera y kuchen",1],["Tarde","SUP en el lago Llanquihue, vista al Osorno",2],["Noche","Alojamiento en Frutillar",3]],
+program:[["Temprano","Salida de Huilo Huilo",0],["Tarde","Frutillar: costanera y kuchen",1],["Tarde","SUP en el lago Llanquihue, vista al Osorno",2],["Noche","Alojamiento en Frutillar",3],["Opcional","Teatro del Lago y Museo Colonial Alemán",1,1]],
 stops:[{n:"Alojamiento Huilo Huilo",c:"alojamiento",la:-39.871,ln:-71.928,t:"Temprano",d:"Salida."},
 {n:"Frutillar",c:"imperdible",la:-41.1245,ln:-73.0585,t:"Tarde",d:"Pueblo junto al lago Llanquihue con vista al volcán Osorno.",tip:"Probar el kuchen alemán."},
 {n:"Lago Llanquihue (SUP)",c:"sup",la:-41.123,ln:-73.065,t:"Tarde",d:"Lago grande con vista al volcán Osorno (coordenada aprox.).",tip:"Revisar el viento."},
 {n:"Alojamiento Frutillar",c:"alojamiento",la:-41.1258,ln:-73.056,t:"Noche",d:"Noche 7. [nombre]"}]},
-{date:"2026-12-21",sl:"Bus nocturno Puerto Montt → Santiago (sin alojamiento)",title:"Puerto Varas, Puerto Montt y bus nocturno a Santiago",color:"#555b63",km:"aprox. 60 km + bus",drive:"aprox. 1:15 h en auto + 12-14 h en bus",
-important:["Llegada a Santiago el 22/12 por la mañana","Comprar con anticipación el bus nocturno Puerto Montt → Santiago","Consultar si el bus acepta las 3 tablas SUP","Devolver el auto en Puerto Montt (recargo one-way)","Opcional: Saltos del Petrohué (ca. 1 h desde Frutillar) si queda tiempo"],
-program:[["Mañana","Puerto Varas: costanera y vista al Osorno",1],["Mediodía","Saltos del Petrohué",2,1],["Tarde","Puerto Montt: devolver el auto",3],["Noche","Bus nocturno a Santiago",4]],
+{date:"2026-12-21",bus:1,sl:"Bus nocturno Puerto Montt → Santiago (sin alojamiento)",title:"Puerto Varas, Puerto Montt y bus nocturno a Santiago",color:"#555b63",km:"aprox. 60 km + bus",drive:"aprox. 1:15 h en auto + 12-14 h en bus",
+important:["Llegada a Santiago el 22/12 por la mañana","Comprar con anticipación el bus nocturno Puerto Montt → Santiago","Consultar si el bus acepta las 3 tablas SUP","Devolver el auto en Puerto Montt (recargo one-way)","Opcional: Saltos del Petrohué (ca. 1 h desde Frutillar) si queda tiempo","Peulla es un día completo: solo si se llega a tiempo al bus de la noche"],
+program:[["Mañana","Puerto Varas: costanera y vista al Osorno",1],["Mediodía","Saltos del Petrohué",2,1],["Tarde","Puerto Montt: devolver el auto",3],["Noche","Bus nocturno a Santiago",4],["Opcional","Lago Todos los Santos: bote Petrohué → Peulla (cabalgata, canopy), solo con salida muy temprana",2,1]],
 stops:[{n:"Alojamiento Frutillar",c:"alojamiento",la:-41.1258,ln:-73.056,t:"Mañana",d:"Salida."},
 {n:"Puerto Varas",c:"imperdible",la:-41.319,ln:-72.985,t:"Mañana",d:"Ciudad a orillas del Llanquihue con vista al Osorno."},
 {n:"Saltos del Petrohué (opcional)",c:"imperdible",la:-41.1627,ln:-72.4467,t:"Opcional",d:"Cascadas y lava junto al volcán Osorno (coordenada aprox.).",tip:"Solo si queda tiempo.",nr:1,ref:1,to:3},
@@ -123,7 +127,7 @@ stops:[{n:"Alojamiento Frutillar",c:"alojamiento",la:-41.1258,ln:-73.056,t:"Mañ
 pack:{"📄 Documentos":["Pasaporte / carnet","Licencia de conducir","Tarjeta y efectivo (CLP)","Pasajes de bus","Reservas","Seguro de viaje","Entradas CONAF"],
 "🌋 Volcán":["Zapatos de trekking","Capas térmicas","Guantes y gorro","Lentes de sol","Bloqueador FPS 50","2 litros de agua","Snacks"],
 "🏄 Equipo SUP":["Tablas SUP (3)","Remos","Leash","Chaleco salvavidas","Bolsa seca","Correas para el techo"],
-"♨️ Termas":["Traje de baño","Toalla","Chalas"],"👕 Ropa":["Shorts y poleras","Pantalón largo","Polar","Cortaviento","Sandalias"],
+"♨️ Termas":["Traje de baño","Toalla","Chalas","Efectivo (no todas aceptan tarjeta)"],"👕 Ropa":["Shorts y poleras","Pantalón largo","Polar","Cortaviento","Sandalias","Repelente de insectos (tábanos)"],
 "🔌 Tecnología":["Celular y cargador","Batería externa","Mapas offline","Linterna frontal","GoPro"]},
 costs:["Pasajes de bus","Alojamiento","Arriendo de auto","Bencina","Tour volcán","Hidrospeed","Entradas y parques","Termas","Comida","Otros"]};
 const $=i=>document.getElementById(i),go=i=>$(i).scrollIntoView({behavior:"smooth"});
@@ -131,7 +135,7 @@ const st={get:(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==
 const fd=s=>new Date(s+"T12:00:00").toLocaleDateString("es-CL",{weekday:"short",day:"2-digit",month:"2-digit"}),ld=s=>new Date(s+"T12:00:00").toLocaleDateString("es-CL",{weekday:"long",day:"numeric",month:"long"});
 const D=TRIP.days,all=D.flatMap(d=>d.stops);
 $("hT").textContent=TRIP.title;$("hS").textContent=TRIP.subtitle;
-const km=D.reduce((s,d)=>s+parseInt(d.km.replace(/\D/g,"")),0);
+const km=D.reduce((s,d)=>s+parseInt(d.km.match(/\d+/)[0]),0);
 $("stats").innerHTML=[[D.length,"Días"],["~"+km,"Kilómetros"],[all.filter(s=>s.c=="sup").length,"Spots de SUP"],["1 🌋","Volcán"]].map(a=>`<div class="stat"><b>${a[0]}</b><span>${a[1]}</span></div>`).join("");
 function tick(){const f=new Date(TRIP.start)-new Date();if(f<=0){$("cd").innerHTML='<div><b>🎉</b><span>¡De viaje!</span></div>';return}
 $("cd").innerHTML=[[Math.floor(f/864e5),"Días"],[Math.floor(f/36e5)%24,"Horas"],[Math.floor(f/6e4)%60,"Min"],[Math.floor(f/1e3)%60,"Seg"]].map(p=>`<div><b>${String(p[0]).padStart(2,"0")}</b><span>${p[1]}</span></div>`).join("")}
@@ -155,8 +159,9 @@ cs2[i]=L.polyline(pts(i),{color:"#fff",weight:9,opacity:.9,interactive:false}).a
 const LG=[],pn=i=>{const a=[];if(i>0){const l=D[i-1].stops.filter(s=>!s.nr).pop();if(l)a.push(l.n)}D[i].stops.filter(s=>!s.nr).forEach(s=>a.push(s.n));return a};
 const fh=sec=>{const m=Math.round(sec/60),h=Math.floor(m/60);return h?h+" h"+(m%60?" "+m%60+" min":""):m+" min"};
 function drv(i){const el=$("dr");if(!el)return;if(!LG[i]){el.textContent="Se calcula con la ruta (requiere internet)…";return}const n=pn(i),L=LG[i].map((l,k)=>[n[k],n[k+1],l.duration,l.distance]).filter((x,k)=>!(i>0&&k==0)&&x[1]&&x[2]>180);
-const O=OP.filter(o=>o.d===i&&o.legs).map(o=>o.legs.map((l,k)=>"🚗 <i>(opcional)</i> "+o.nm[k]+" → "+o.nm[k+1]+": <b>"+fh(l.duration)+"</b> · "+Math.round(l.distance/1000)+" km").join("<br>")).join("<br>");
-el.innerHTML=(L.length?L.map(x=>"🚗 "+x[0]+" → "+x[1]+": <b>"+fh(x[2])+"</b> · "+Math.round(x[3]/1000)+" km").join("<br>")+'<br><small style="color:#6b6f76">Ruta por carretera, sin paradas ni pausas.</small>':"Sin traslados en auto este día.")+(O?"<br>"+O:"")}
+if(L.length&&!D[i].bus){const dm=$("dm"),kx=$("kx");if(dm)dm.textContent="🚗 aprox. "+fh(L.reduce((a,x)=>a+x[2],0)*1.2);if(kx)kx.textContent="📏 aprox. "+Math.round(L.reduce((a,x)=>a+x[3],0)/1000)+" km"}
+const O=OP.filter(o=>o.d===i&&o.legs).map(o=>o.legs.map((l,k)=>"🚗 <i>(opcional)</i> "+o.nm[k]+" → "+o.nm[k+1]+": <b>"+fh(l.duration*1.2)+"</b> · "+Math.round(l.distance/1000)+" km").join("<br>")).join("<br>");
+el.innerHTML=(L.length?L.map(x=>"🚗 "+x[0]+" → "+x[1]+": <b>"+fh(x[2]*1.2)+"</b> · "+Math.round(x[3]/1000)+" km").join("<br>")+'<br><small style="color:#6b6f76">Tiempos de la ruta por carretera con 20 % de margen (caminos de montaña), sin paradas.</small>':"Sin traslados en auto este día.")+(O?"<br>"+O:"")}
 (async()=>{for(let i=0;i<D.length;i++){const p=pts(i);if(p.length<2)continue;try{const r=await fetch("https://router.project-osrm.org/route/v1/driving/"+p.map(x=>x[1]+","+x[0]).join(";")+"?overview=full&geometries=geojson"),j=await r.json();if(j.routes&&j.routes[0]){const ll=j.routes[0].geometry.coordinates.map(c=>[c[1],c[0]]);rt[i].setLatLngs(ll).setStyle({dashArray:null});cs2[i].setLatLngs(ll);LG[i]=j.routes[0].legs;if(cur===i)drv(i)}}catch(e){}}
 for(const o of OP){try{const r=await fetch("https://router.project-osrm.org/route/v1/driving/"+o.pp.map(x=>x[1]+","+x[0]).join(";")+"?overview=full&geometries=geojson"),j=await r.json();if(j.routes&&j.routes[0]){o.line.setLatLngs(j.routes[0].geometry.coordinates.map(c=>[c[1],c[0]]));o.legs=j.routes[0].legs;if(cur===o.d)drv(o.d)}}catch(e){}}})();
 $("fs").innerHTML=Object.entries(TRIP.cats).map(([k,c])=>`<button class="fc on" data-k="${k}" style="background:${c[2]}">${c[1]} ${c[0]}</button>`).join("");
@@ -169,7 +174,7 @@ $("chips").querySelectorAll(".chip").forEach(c=>c.onclick=()=>sel(+c.dataset.i))
 function sel(i){cur=i;const d=D[i],nk="notes-"+d.date;
 $("chips").querySelectorAll(".chip").forEach((c,k)=>{c.classList.toggle("on",k==i);c.style.background=k==i?D[k].color:"#f3f3f3"});
 map.flyToBounds(L.latLngBounds(d.stops.map(s=>[s.la,s.ln])).extend(rt[i].getBounds()),{padding:[60,60],maxZoom:13,duration:1});vis();
-$("detail").innerHTML=`<div class="date" style="color:${d.color}">Día ${i+1} · ${ld(d.date)}</div><h3>${d.title}</h3><div class="meta"><span>🚗 ${d.drive}</span><span>📏 ${d.km}</span><span>🏠 ${d.sl}</span></div><ul class="prog" style="--c:${d.color}">${d.program.map(p=>`<li data-s="${p[2]}"><span class="t">${p[0]}</span>${p[1]}${p[3]?'<span class="op">Opcional</span>':""}</li>`).join("")}</ul><div class="info" style="background:#e9f3f9;border-color:var(--lake)"><h4>🚗 Tiempos de viaje</h4><div id="dr">Cargando…</div></div><div class="info"><h4>⚠️ Importante</h4><ul>${d.important.map(x=>`<li>${x}</li>`).join("")}</ul></div><h4 style="font-size:.78rem;text-transform:uppercase;margin:10px 0 6px">📝 Notas</h4><textarea id="nt" placeholder="Tus notas...">${st.get(nk,"")}</textarea>`;
+$("detail").innerHTML=`<div class="date" style="color:${d.color}">Día ${i+1} · ${ld(d.date)}</div><h3>${d.title}</h3><div class="meta"><span id="dm">🚗 ${d.drive}</span><span id="kx">📏 ${d.km}</span><span>🏠 ${d.sl}</span></div><ul class="prog" style="--c:${d.color}">${d.program.map(p=>`<li data-s="${p[2]}"><span class="t">${p[0]}</span>${p[1]}${p[3]?'<span class="op">Opcional</span>':""}</li>`).join("")}</ul><div class="info" style="background:#e9f3f9;border-color:var(--lake)"><h4>🚗 Tiempos de viaje</h4><div id="dr">Cargando…</div></div><div class="info"><h4>⚠️ Importante</h4><ul>${d.important.map(x=>`<li>${x}</li>`).join("")}</ul></div><h4 style="font-size:.78rem;text-transform:uppercase;margin:10px 0 6px">📝 Notas</h4><textarea id="nt" placeholder="Tus notas...">${st.get(nk,"")}</textarea>`;
 drv(i);$("detail").querySelectorAll(".prog li").forEach(li=>li.onclick=()=>{const s=d.stops[+li.dataset.s];if(s){map.flyTo([s.la,s.ln],13,{duration:.8})}});
 $("nt").oninput=e=>st.set(nk,e.target.value)}
 function showAll(){cur=null;$("chips").querySelectorAll(".chip").forEach(c=>{c.classList.remove("on");c.style.background="#f3f3f3"});map.flyToBounds(L.latLngBounds(all.map(s=>[s.la,s.ln])),{padding:[40,40],duration:1});vis();
